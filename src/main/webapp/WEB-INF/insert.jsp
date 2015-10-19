@@ -17,7 +17,7 @@
   <br>   Input NameProject<input type="text"  name="name"/></br>
   <br>   Input DateBegin<input type="text" name="dateBegin"/></br>
   <br>   Input CompleteDate<input type="text" name="dateComplete"/> </br>
-  <br> <input type="submit" name="act" value="Ок"/></br>
+  <br> <input type="submit" name="act" value="Ok"/></br>
   <br> <input type="submit" name="act" value="cancel"></br>
 
 </form>

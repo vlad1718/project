@@ -44,10 +44,13 @@ public class NewServlet extends HttpServlet  {
         }
         else if(path.contains("/insert")){
 
+            String act = request.getParameter("act");
+            if(act!=null){
             String name=request.getParameter("name");
-            if(name!=null){
-                String startDate=request.getParameter("dateBegin");
-                String completeDate=request.getParameter("dateComplete");
+            if(name!=null) {
+
+                String startDate = request.getParameter("dateBegin");
+                String completeDate = request.getParameter("dateComplete");
                 Date ps = null;
                 Date ds = null;
                 try {
@@ -57,14 +60,16 @@ public class NewServlet extends HttpServlet  {
 
                 }
 
+                Projects pr = new Projects(0, name, ps, ds);
+              if (act.equals("Ok")) {
+                  r.insert(pr);
+              }
 
-                    Projects pr = new Projects(0,name,ps,ds);
-                    r.insert(pr);
-                    request.setAttribute("list",r.findAll());
-                    getServletContext().getRequestDispatcher("/WEB-INF/first.jsp").forward(request, response);
+                request.setAttribute("list", r.findAll());
 
 
-
+            }
+                getServletContext().getRequestDispatcher("/WEB-INF/first.jsp").forward(request, response);
             }
             getServletContext().getRequestDispatcher("/WEB-INF/insert.jsp").forward(request, response);
         }
