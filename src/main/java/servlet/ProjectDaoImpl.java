@@ -1,6 +1,7 @@
 package servlet;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 
 
@@ -45,11 +46,15 @@ public class ProjectDaoImpl implements ProjectDao {
         getSjt().update(sql, parameters);
     }
 
-    public List<Projects> getAllProjects() {
-        //String sql = "SELECT *FROM projects";
-        List<Projects> lpr = new ArrayList<Projects>();
-      //  List<Projects> lpr  = getSjt().query(sql, new BeanPropertyRowMapper(Projects.class));
-        return lpr;
+    public List<Projects> findAll(){
+
+        String sql = "SELECT * FROM projects";
+
+        List<Projects> projects =
+                getSjt().query(sql,
+                        ParameterizedBeanPropertyRowMapper.newInstance(Projects.class));
+
+        return projects;
     }
 
 

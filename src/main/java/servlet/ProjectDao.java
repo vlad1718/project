@@ -7,5 +7,5 @@ import java.util.List;
  */
 public interface ProjectDao {
     public void insert(Projects project);
-    public List<Projects> getAllProjects();
+    public List<Projects> findAll();
 }

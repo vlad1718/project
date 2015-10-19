@@ -39,7 +39,7 @@ public class NewServlet extends HttpServlet  {
 
         if(path.contains("/first")){
 
-            request.setAttribute("list",r.getAllProjects());
+            request.setAttribute("list",r.findAll());
             getServletContext().getRequestDispatcher("/WEB-INF/first.jsp").forward(request, response);
         }
         else if(path.contains("/insert")){
@@ -60,7 +60,7 @@ public class NewServlet extends HttpServlet  {
 
                     Projects pr = new Projects(0,name,ps,ds);
                     r.insert(pr);
-
+                    request.setAttribute("list",r.findAll());
                     getServletContext().getRequestDispatcher("/WEB-INF/first.jsp").forward(request, response);
 
 
