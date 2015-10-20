@@ -12,7 +12,7 @@
 
         <constructor-arg type="javax.sql.DataSource" ref="DataSource"/>
     </bean>
-    <bean id="Iter" class="servlet.IterationDaoImpl">
+    <bean id="Iter" class="servlet.iterations.IterationDaoImpl">
        <property name="sjt" ref="SimpleJdbc"></property>
     </bean>
 

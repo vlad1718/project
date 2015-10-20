@@ -1,4 +1,4 @@
-package servlet;
+package servlet.iterations;
 
 import java.util.Date;
 
@@ -8,11 +8,24 @@ import java.util.Date;
 public class Iterations {
     private int it_id;
     private String it_name;
-    private String it_iter;
+
     private String it_description;
     private Date it_startDate;
     private Date it_endDate;
     private String it_status;
+
+    public Iterations() {
+    }
+
+    public Iterations(int it_id, String it_name, String it_description, Date it_startDate, Date it_endDate, String it_status, int pr_id) {
+        this.it_id = it_id;
+        this.it_name = it_name;
+        this.it_description = it_description;
+        this.it_startDate = it_startDate;
+        this.it_endDate = it_endDate;
+        this.it_status = it_status;
+        this.pr_id = pr_id;
+    }
 
     public int getPr_id() {
         return pr_id;
@@ -28,7 +41,7 @@ public class Iterations {
         return "Iterations{" +
                 "it_id=" + it_id +
                 ", it_name='" + it_name + '\'' +
-                ", it_iter='" + it_iter + '\'' +
+
                 ", it_description='" + it_description + '\'' +
                 ", it_startDate=" + it_startDate +
                 ", it_endDate=" + it_endDate +
@@ -52,13 +65,8 @@ public class Iterations {
         this.it_name = it_name;
     }
 
-    public String getIt_iter() {
-        return it_iter;
-    }
 
-    public void setIt_iter(String it_iter) {
-        this.it_iter = it_iter;
-    }
+
 
     public String getIt_description() {
         return it_description;

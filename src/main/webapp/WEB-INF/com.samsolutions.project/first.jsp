@@ -21,7 +21,7 @@
         <button class="btn btn-primary" type="submit">Add</button>
 </form>
 <form action ="/serv/listIter">
-        <input type="submit" name="add_iter" value="add Iteration" disabled="this.disabled='true'"/>
+
         <thead>
         <tr>
         <br>  <th>projectName</th><br>
@@ -45,5 +45,6 @@
 
 
 </form>
+
 </body>
 </html>

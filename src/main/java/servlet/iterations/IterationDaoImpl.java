@@ -1,4 +1,4 @@
-package servlet;
+package servlet.iterations;
 
 import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
@@ -22,7 +22,7 @@ public class IterationDaoImpl implements IterationDao {
     private SimpleJdbcTemplate sjt;
     public void insert(Iterations iter) {
         String sql = "INSERT INTO iterations " +
-                "(it_id, it_name, it_description, it_startDate, it_endDate, it_status, pr_id) VALUES (0,:it_Name, :it_description, :it_startDate, :it_endDate,, :it_status, :pr_id)";
+                "(it_id, it_name, it_description, it_startDate, it_endDate, it_status, pr_id) VALUES (0,:it_name, :it_description, :it_startDate, :it_endDate, :it_status, :pr_id)";
 
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("it_name", iter.getIt_name());
@@ -46,6 +46,16 @@ public class IterationDaoImpl implements IterationDao {
 
     public List<Iterations> findIter(int n){
         String sql = "SELECT * FROM iterations where pr_id='" + n +"'";
+
+        List<Iterations> iter =
+                getSjt().query(sql,
+                        ParameterizedBeanPropertyRowMapper.newInstance(Iterations.class));
+
+        return iter;
+    }
+
+    public List findThisIter(int n) {
+        String sql = "SELECT * FROM iterations where it_id='" + n +"'";
 
         List<Iterations> iter =
                 getSjt().query(sql,
