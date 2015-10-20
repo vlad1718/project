@@ -12,18 +12,22 @@
 <html>
 <head>
     <title></title>
+  <link href="<c:url value="/resources/styles/bootstrap.css" />" rel="stylesheet">
+  <script src="<c:url value="/resources/javascript/bootstrap.js" />"></script>
 </head>
 <body>
-<link href="<c:url value="/resources/styles/bootstrap.css" />" rel="stylesheet">
-<script src="<c:url value="/resources/javascript/bootstrap.js" />"></script>
-<form action="/insert">
+
+<form action="/act/insert">
   <div class="container-fluid">
     <div class="row-fluid">
       <div class="span2">
         <!--Sidebar content-->
+
+        <button class="btn btn-primary" type="submit">Add</button>
       </div>
       <div class="span10">
-        <input type="submit" name="Ок" value="add"/>
+
+        <input type="submit" name="add_iter" value="add Iteration" disabled="this.disabled='true'"/>
         <thead>
         <tr>
         <br>  <th>projectName</th><br>

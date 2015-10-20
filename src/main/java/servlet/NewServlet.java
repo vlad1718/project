@@ -22,7 +22,7 @@ import java.util.List;
 /**
  * Created by User on 14.10.2015.
  */
-@WebServlet(name = "NewServlet")
+
 public class NewServlet extends HttpServlet  {
 
 
@@ -37,20 +37,20 @@ public class NewServlet extends HttpServlet  {
         ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
         ProjectDaoImpl r =(ProjectDaoImpl)context.getBean("ProjectDaoImpl");
 
-        if(path.contains("/first")){
+        if(path.contains("/act/first")){
 
             request.setAttribute("list",r.findAll());
             getServletContext().getRequestDispatcher("/WEB-INF/first.jsp").forward(request, response);
         }
-        else if(path.contains("/insert")){
+        else if(path.contains("/act/insert")){
 
             String act = request.getParameter("act");
             if(act!=null){
-            String name=request.getParameter("name");
+            String name=request.getParameter("NameProject");
             if(name!=null) {
 
-                String startDate = request.getParameter("dateBegin");
-                String completeDate = request.getParameter("dateComplete");
+                String startDate = request.getParameter("DateBegin");
+                String completeDate = request.getParameter("DateComplete");
                 Date ps = null;
                 Date ds = null;
                 try {
@@ -59,15 +59,11 @@ public class NewServlet extends HttpServlet  {
                 } catch (ParseException e) {
 
                 }
-
                 Projects pr = new Projects(0, name, ps, ds);
               if (act.equals("Ok")) {
                   r.insert(pr);
               }
-
                 request.setAttribute("list", r.findAll());
-
-
             }
                 getServletContext().getRequestDispatcher("/WEB-INF/first.jsp").forward(request, response);
             }

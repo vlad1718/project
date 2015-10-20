@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: User
@@ -9,14 +10,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Edit in DB</title>
+  <link href="<c:url value="/resources/styles/bootstrap.css" />" rel="stylesheet">
+  <script src="<c:url value="/resources/javascript/bootstrap.js" />"></script>
 </head>
 <body>
-<form action = "/insert">
-  <br>   Input NameProject<input type="text"  name="name"/></br>
-  <br>   Input DateBegin<input type="text" name="dateBegin"/></br>
-  <br>   Input CompleteDate<input type="text" name="dateComplete"/> </br>
+<form action = "/act/insert" role="form">
+  <div class = "form-group">
+    <label for="NameProject">NameProject</label>
+    <input type ="text" class="form-control" id="NameProject" name="NameProject" placeholder="InputNameProject">
+    </div>
+    <div class = "form-group">
+      <label for="DateBegin">DateBegin</label>
+      <input type ="text" class="form-control" id="DateBegin" name="DateBegin" placeholder="InputDateBegin">
+   </div>
+  <div class = "form-group">
+    <label for="DateComplete">DateComplete</label>
+    <input type ="text" class="form-control" id="DateComplete" name="DateComplete" placeholder="DateComplete">
+  </div>
+
   <br> <input type="submit" name="act" value="Ok"/></br>
   <br> <input type="submit" name="act" value="cancel"></br>
 

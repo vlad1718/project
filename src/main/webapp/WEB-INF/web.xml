@@ -14,7 +14,7 @@
 
     <servlet-mapping>
         <servlet-name>NewServlet</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/act/*</url-pattern>
     </servlet-mapping>
     <context-param>
         <param-name>contextConfigLocation</param-name>
