@@ -34,7 +34,7 @@
             for (Projects pr : (List<Projects>) request.getAttribute("list")) {
           %>
 
-         <br> <button class="btn btn-default" type="text" ><%=pr.getProjectName()%></button></br>
+         <br> <button class="btn btn-default" type="text" name="add" value=<%=pr.getIdProject()%>><%=pr.getProjectName()%></button></br>
         </tr>
         <%
           }

@@ -43,4 +43,14 @@ public class IterationDaoImpl implements IterationDao {
 
         return iter;
     }
+
+    public List<Iterations> findIter(int n){
+        String sql = "SELECT * FROM iterations where pr_id='" + n +"'";
+
+        List<Iterations> iter =
+                getSjt().query(sql,
+                        ParameterizedBeanPropertyRowMapper.newInstance(Iterations.class));
+
+        return iter;
+    }
 }

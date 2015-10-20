@@ -24,8 +24,14 @@ public class IterationServlet extends HttpServlet {
         ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
         IterationDaoImpl r =(IterationDaoImpl)context.getBean("Iter");
         if(path.contains("/serv/listIter")){
+            String st = request.getParameter("add");
+            if (st != null)  {
+                int n = Integer.parseInt(st);
 
-            request.setAttribute("list",r.findAll());
+                    request.setAttribute("list", r.findIter(n));
+
+            }
+
             getServletContext().getRequestDispatcher("/WEB-INF/com.samsolutions.iterations/listIter.jsp").forward(request, response);
         }
     }
