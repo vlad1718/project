@@ -1,4 +1,4 @@
-<%@ page import="servlet.Projects" %>
+<%@ page import="servlet.projects.Projects" %>
 <%@ page import="java.util.List" %>
 <%--
   Created by IntelliJ IDEA.
@@ -18,15 +18,9 @@
 <body>
 
 <form action="/act/insert">
-  <div class="container-fluid">
-    <div class="row-fluid">
-      <div class="span2">
-        <!--Sidebar content-->
-
         <button class="btn btn-primary" type="submit">Add</button>
-      </div>
-      <div class="span10">
-
+</form>
+<form action ="/serv/listIter">
         <input type="submit" name="add_iter" value="add Iteration" disabled="this.disabled='true'"/>
         <thead>
         <tr>
@@ -39,7 +33,8 @@
 
             for (Projects pr : (List<Projects>) request.getAttribute("list")) {
           %>
-        <br>  <td><%=pr.getProjectName()%></td></br>
+
+         <br> <button class="btn btn-default" type="text" ><%=pr.getProjectName()%></button></br>
         </tr>
         <%
           }
@@ -47,9 +42,7 @@
         %>
         </tbody>
         </table>
-      </div>
-    </div>
-  </div>
+
 
 </form>
 </body>

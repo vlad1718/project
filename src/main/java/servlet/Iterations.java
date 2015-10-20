@@ -14,6 +14,15 @@ public class Iterations {
     private Date it_endDate;
     private String it_status;
 
+    public int getPr_id() {
+        return pr_id;
+    }
+
+    public void setPr_id(int pr_id) {
+        this.pr_id = pr_id;
+    }
+
+    private int pr_id;
     @Override
     public String toString() {
         return "Iterations{" +

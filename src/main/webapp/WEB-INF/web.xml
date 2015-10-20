@@ -16,6 +16,20 @@
         <servlet-name>NewServlet</servlet-name>
         <url-pattern>/act/*</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+
+        <description></description>
+        <servlet-name>IterationServlet</servlet-name>
+        <servlet-class>servlet.IterationServlet</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>IterationServlet</servlet-name>
+        <url-pattern>/serv/*</url-pattern>
+    </servlet-mapping>
+
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:module.xml</param-value>

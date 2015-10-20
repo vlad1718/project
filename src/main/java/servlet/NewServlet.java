@@ -1,23 +1,18 @@
 package servlet;
 
-import com.sun.corba.se.impl.corba.RequestImpl;
-import org.flywaydb.core.Flyway;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-import org.springframework.web.context.support.XmlWebApplicationContext;
+import servlet.projects.ProjectDaoImpl;
+import servlet.projects.Projects;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by User on 14.10.2015.
@@ -36,11 +31,10 @@ public class NewServlet extends HttpServlet  {
         String path = request.getRequestURI();
         ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
         ProjectDaoImpl r =(ProjectDaoImpl)context.getBean("ProjectDaoImpl");
-
         if(path.contains("/act/first")){
 
             request.setAttribute("list",r.findAll());
-            getServletContext().getRequestDispatcher("/WEB-INF/first.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/WEB-INF/com.samsolutions.project/first.jsp").forward(request, response);
         }
         else if(path.contains("/act/insert")){
 
@@ -65,9 +59,9 @@ public class NewServlet extends HttpServlet  {
               }
                 request.setAttribute("list", r.findAll());
             }
-                getServletContext().getRequestDispatcher("/WEB-INF/first.jsp").forward(request, response);
+                getServletContext().getRequestDispatcher("/WEB-INF/com.samsolutions.project/first.jsp").forward(request, response);
             }
-            getServletContext().getRequestDispatcher("/WEB-INF/insert.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/WEB-INF/com.samsolutions.project/insert.jsp").forward(request, response);
         }
     }
 }

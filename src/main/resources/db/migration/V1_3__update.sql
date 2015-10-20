@@ -1,0 +1,1 @@
+ALTER TABLE iterations add column pr_id INT NOT NULL;

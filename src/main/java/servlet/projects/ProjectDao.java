@@ -1,4 +1,4 @@
-package servlet;
+package servlet.projects;
 
 import java.util.List;
 

@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd "
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-init-method="migrate">
 
-    <bean id="ProjectDaoImpl"  class="servlet.ProjectDaoImpl">
-        <property name="ds" ref="DataSource"></property>
+    <bean id="ProjectDaoImpl"  class="servlet.projects.ProjectDaoImpl">
+        <property name="ds" ref="SimpleJdbc"></property>
 
      </bean>
+    <bean id="SimpleJdbc" class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
+
+        <constructor-arg type="javax.sql.DataSource" ref="DataSource"/>
+    </bean>
+    <bean id="Iter" class="servlet.IterationDaoImpl">
+       <property name="sjt" ref="SimpleJdbc"></property>
+    </bean>
 
     <bean id="flyway" class = "org.flywaydb.core.Flyway" init-method="migrate">
     <property name="dataSource" ref="DataSource"></property>
