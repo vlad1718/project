@@ -65,7 +65,7 @@ public class IterationServlet extends HttpServlet {
                     if (act.equals("Ok")) {
                         r.insert(pr);
                     }
-
+                    request.setAttribute("list",r.findIter((Integer)session.getAttribute("project")) );
                 }
                 getServletContext().getRequestDispatcher("/WEB-INF/com.samsolutions.iterations/listIter.jsp").forward(request, response);
             }
