@@ -33,17 +33,42 @@
 
             for (Projects pr : (List<Projects>) request.getAttribute("list")) {
           %>
+      <div class ="btn-group">
+         <br> <button class="btn btn-default" type="text"  name="add" value=<%=pr.getIdProject()%>><%=pr.getProjectName()%></button></br>
+      </div></tr>
 
-         <br> <button class="btn btn-default" type="text" name="add" value=<%=pr.getIdProject()%>><%=pr.getProjectName()%></button></br>
-        </tr>
         <%
           }
 
         %>
         </tbody>
         </table>
+       <div class ="navbar navbar-default navbar-fixed-bottom">
+           <div class="container">
+               <p class="navbar text pull-right1">This is first footer</p>
+           </div>
+       </div>
 
+    <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#b-menu-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Management Project</a>
+            </div>
+            <div class="collapse navbar-collapse" id="b-menu-1">
+                <ul class="nav navbar-nav navbar-right">
 
+                    <li><a href="#">Online</a></li>
+                    <li><a href="#">Log out</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </form>
 
 </body>

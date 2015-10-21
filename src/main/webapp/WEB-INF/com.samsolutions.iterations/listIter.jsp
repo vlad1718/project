@@ -21,8 +21,9 @@
 
     for (Iterations iter : (List<Iterations>) request.getAttribute("list")) {
   %>
-
+  <div class="btn-group">
   <br> <button class="btn btn-default" type="text" name="iter" value=<%=iter.getIt_id()%>><%=iter.getIt_name()%></button></br>
+  </div>
   <%
     }
 
