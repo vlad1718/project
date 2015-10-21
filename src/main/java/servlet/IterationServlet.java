@@ -33,12 +33,11 @@ public class IterationServlet extends HttpServlet {
         HttpSession session = request.getSession(true);
         if(path.contains("/serv/listIter")){
             String st = request.getParameter("add");
-            if (st != null)  {
-                int n = Integer.parseInt(st);
-                session.setAttribute("project",n);
-                request.setAttribute("list", r.findIter(n));
-
+            if(st!=null) {
+                session.setAttribute("project", (Integer.parseInt(st)));
             }
+            request.setAttribute("list", r.findIter((Integer)session.getAttribute("project")));
+
 
             getServletContext().getRequestDispatcher("/WEB-INF/com.samsolutions.iterations/listIter.jsp").forward(request, response);
         }
@@ -66,18 +65,19 @@ public class IterationServlet extends HttpServlet {
                     if (act.equals("Ok")) {
                         r.insert(pr);
                     }
-                    request.setAttribute("list", r.findIter((Integer)session.getAttribute("project")));
+
                 }
                 getServletContext().getRequestDispatcher("/WEB-INF/com.samsolutions.iterations/listIter.jsp").forward(request, response);
             }
             getServletContext().getRequestDispatcher("/WEB-INF/com.samsolutions.iterations/newIter.jsp").forward(request, response);
-        }
+    }
         if(path.contains("/serv/view")){
              String st = request.getParameter("iter");
             if (st != null)  {
                 int n = Integer.parseInt(st);
 
                 request.setAttribute("list", r.findThisIter(n));
+
 
             }
             getServletContext().getRequestDispatcher("/WEB-INF/com.samsolutions.iterations/view.jsp").forward(request, response);

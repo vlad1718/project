@@ -14,7 +14,7 @@
   <script src="<c:url value="/resources/javascript/bootstrap.js" />"></script>
 </head>
 <body>
-<form action = "" role="form">
+<form action = "/serv/listIter" role="form">
   <div class = "form-group">
     <label for="NameIteration">NameProject</label>
     <input type ="text" class="form-control" id="NameIteration" name="NameIteration" placeholder="InputNameIteration">
