@@ -11,15 +11,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.*;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
  * Created by User on 20.10.2015.
  */
-@WebServlet(name = "IterationServlet")
+@WebServlet(name="IterationServlet",urlPatterns="/serv/*")
 public class IterationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -73,13 +75,22 @@ public class IterationServlet extends HttpServlet {
     }
         if(path.contains("/serv/view")){
              String st = request.getParameter("iter");
-            if (st != null)  {
-                int n = Integer.parseInt(st);
+            if (st != null) {
 
-                request.setAttribute("list", r.findThisIter(n));
-
-
+                session.setAttribute("it", Integer.parseInt(st));
             }
+                request.setAttribute("list", r.findThisIter((Integer)session.getAttribute("it")));
+                String str = request.getParameter("del");
+                if(str!=null){
+
+
+
+                    r.del((Integer)session.getAttribute("it"));
+                    request.setAttribute("list", r.findIter((Integer)session.getAttribute("project")));
+                    getServletContext().getRequestDispatcher("/WEB-INF/com.samsolutions.iterations/listIter.jsp").forward(request, response);
+                }
+
+
             getServletContext().getRequestDispatcher("/WEB-INF/com.samsolutions.iterations/view.jsp").forward(request, response);
         }
 

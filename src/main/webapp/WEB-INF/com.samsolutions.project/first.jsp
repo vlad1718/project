@@ -18,7 +18,7 @@
 <body>
 
 <form action="/act/insert">
-        <button class="btn btn-primary" type="submit">Add</button>
+    <br><br><br>    <button class="btn btn-primary btn-lg" type="submit">Add</button>
 </form>
 <form action ="/serv/listIter">
 
@@ -52,12 +52,7 @@
     <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#b-menu-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+
                 <a class="navbar-brand" href="#">Management Project</a>
             </div>
             <div class="collapse navbar-collapse" id="b-menu-1">

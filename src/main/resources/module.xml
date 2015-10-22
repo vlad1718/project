@@ -7,5 +7,4 @@
     <import resource="dataConnection.xml" />
     <import resource="Client.xml" />
 
-
 </beans>

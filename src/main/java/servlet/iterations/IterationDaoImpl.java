@@ -63,4 +63,10 @@ public class IterationDaoImpl implements IterationDao {
 
         return iter;
     }
+
+    public void del(int list) {
+
+        String sql = "Delete  FROM iterations where it_id=?";
+        getSjt().update(sql,list);
+    }
 }

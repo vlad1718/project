@@ -6,6 +6,7 @@ import servlet.projects.ProjectDaoImpl;
 import servlet.projects.Projects;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +18,7 @@ import java.util.Date;
 /**
  * Created by User on 14.10.2015.
  */
-
+@WebServlet(name="NewServlet",urlPatterns="/act/*")
 public class NewServlet extends HttpServlet  {
 
 

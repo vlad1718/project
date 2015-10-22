@@ -15,9 +15,10 @@
 </head>
 <body>
 <form action = "/serv/newIter" role="form">
+  <div class = "container">
   <div class = "form-group">
-    <label for="NameIteration">NameProject</label>
-    <input type ="text" class="form-control" id="NameIteration" name="NameIteration" placeholder="InputNameIteration">
+    <label for="NameIteration">NameIteration</label>
+    <input type ="text" class="form-control input-lg" id="NameIteration" name="NameIteration" placeholder="InputNameIteration">
   </div>
   <div class = "form-group">
     <label for="Description">Description</label>
@@ -29,13 +30,13 @@
   </div>
   <div class = "form-group">
     <label for="endDate">DateComplete</label>
-    <input type ="text" class="form-control" id="endDate" name="endDate" placeholder="endDate">
+    <input type ="text" class="form-control " id="endDate" name="endDate" placeholder="endDate">
   </div>
   <div class = "form-group">
     <label for="status">Status</label>
     <input type ="text" class="form-control" id="status" name="status" placeholder="status">
   </div>
-
+</div>
   <br> <input type="submit" name="act" value="Ok"/></br>
   <br> <input type="submit" name="act" value="cancel"></br>
 
