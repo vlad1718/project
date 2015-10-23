@@ -83,8 +83,6 @@ public class IterationServlet extends HttpServlet {
                 String str = request.getParameter("del");
                 if(str!=null){
 
-
-
                     r.del((Integer)session.getAttribute("it"));
                     request.setAttribute("list", r.findIter((Integer)session.getAttribute("project")));
                     getServletContext().getRequestDispatcher("/WEB-INF/com.samsolutions.iterations/listIter.jsp").forward(request, response);

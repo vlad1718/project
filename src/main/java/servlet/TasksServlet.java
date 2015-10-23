@@ -31,8 +31,24 @@ public class TasksServlet extends HttpServlet {
         TaskDaoImpl r =(TaskDaoImpl)context.getBean("Tasks");
         HttpSession session = request.getSession(true);
         if(path.equals("/tasks/view")){
+             ArrayList <Tasks> notSt = new ArrayList<Tasks>();
+             ArrayList <Tasks> st = new ArrayList<Tasks>();
+            ArrayList <Tasks> completed = new ArrayList<Tasks>();
+            for (Tasks task : (List<Tasks>) r.findTasks((Integer) session.getAttribute("it"))){
+                if (task.getT_kategory().equals("not started")){
+                    notSt.add(task);
+                    request.setAttribute("not started",notSt);
+                }
+                if (task.getT_kategory().equals("started")){
+                    st.add(task);
 
-            request.setAttribute("task",r.findTasks((Integer)session.getAttribute("it")));
+                    request.setAttribute("started",st);
+                }
+                if (task.getT_kategory().equals("completed")){
+                    completed.add(task);
+                    request.setAttribute("completed",completed);
+                }
+            }
             getServletContext().getRequestDispatcher("/WEB-INF/view.jsp").forward(request, response);
         }
     }

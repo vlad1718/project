@@ -5,62 +5,54 @@ import java.util.Date;
 /**
  * Created by User on 22.10.2015.
  */
-public class Tasks{
-    private int id;
-    private String kategory;
-    private String description;
-    private Date  estimatedHours;
+public class Tasks {
+    private int t_id;
 
-    @Override
-    public String toString() {
-        return "Tasks{" +
-                "id=" + id +
-                ", kategory='" + kategory + '\'' +
-                ", description='" + description + '\'' +
-                ", estimatedHours=" + estimatedHours +
-                ", id_it=" + id_it +
-                '}';
+    public int getT_id() {
+        return t_id;
     }
 
-    private int id_it;
-
-    public int getId() {
-        return id;
+    public void setT_id(int t_id) {
+        this.t_id = t_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getT_kategory() {
+        return t_kategory;
     }
 
-    public String getKategory() {
-        return kategory;
+    public void setT_kategory(String t_kategory) {
+        this.t_kategory = t_kategory;
     }
 
-    public void setKategory(String kategory) {
-        this.kategory = kategory;
+    public String getT_description() {
+        return t_description;
     }
 
-    public String getDescription() {
-        return description;
+    public void setT_description(String t_description) {
+        this.t_description = t_description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public Date getT_estimatedHours() {
+        return t_estimatedHours;
     }
 
-    public Date getEstimatedHours() {
-        return estimatedHours;
+    public void setT_estimatedHours(Date t_estimatedHours) {
+        this.t_estimatedHours = t_estimatedHours;
     }
 
-    public void setEstimatedHours(Date estimatedHours) {
-        this.estimatedHours = estimatedHours;
+    public int getIt_id() {
+        return it_id;
     }
 
-    public int getId_it() {
-        return id_it;
+    public void setIt_id(int it_id) {
+        this.it_id = it_id;
     }
 
-    public void setId_it(int id_it) {
-        this.id_it = id_it;
-    }
+    private String t_kategory;
+    private String t_description;
+    private Date t_estimatedHours;
+
+
+    private int it_id;
+
 }

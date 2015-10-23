@@ -67,6 +67,9 @@ public class IterationDaoImpl implements IterationDao {
     public void del(int list) {
 
         String sql = "Delete  FROM iterations where it_id=?";
+        String sql1 = "Delete  FROM tasks where it_id=?";
+
         getSjt().update(sql,list);
+        getSjt().update(sql1,list);
     }
 }

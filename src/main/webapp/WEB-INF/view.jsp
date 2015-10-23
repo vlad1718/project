@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="servlet.iterations.Iterations" %>
+
 <%@ page import="java.util.List" %>
 <%@ page import="servlet.tasks.Tasks" %>
 <%--
@@ -17,27 +17,39 @@
   <script src="<c:url value="/resources/javascript/bootstrap.js" />"></script>
 </head>
 <body>
-<table >
-<thead>
-<tr>
-  <th>Description</th>
-  </tr>
-</thead>
-  <tbody>
-  <tr>
-  <%
-    for (Tasks task : (List<Tasks>) request.getAttribute("task")) {
-  %>
-    <td><%=task.getDescription()%></td>
-  </tr>
-  <%
-
-    }
+<ol>
+  <b>Not Started tasks</b>
+  <% if((List<Tasks>) request.getAttribute("not started")!=null){
+    for (Tasks task : (List<Tasks>) request.getAttribute("not started")) {
 
   %>
-</tbody>
-  </table>
+  <li>  <%=task.getT_description()%></li>
+  <%
+      } }
+  %>
+</ol>
+<ol>
+  <b>Started tasks</b>
+  <%
+    if((List<Tasks>) request.getAttribute("started")!=null){
+    for (Tasks task : (List<Tasks>) request.getAttribute("started")) {
 
-
+  %>
+<li>  <%=task.getT_description()%></li>
+  <%
+      } }
+  %>
+</ol>
+<ol>
+  <b>Completed tasks</b>
+  <%
+    if((List<Tasks>) request.getAttribute("completed")!=null){
+    for (Tasks task : (List<Tasks>) request.getAttribute("completed")) {
+  %>
+  <li>  <%=task.getT_description()%></li>
+  <%
+      } }
+  %>
+</ol>
 </body>
 </html>
