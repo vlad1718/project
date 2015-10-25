@@ -15,6 +15,9 @@
     <bean id="Iter" class="servlet.iterations.IterationDaoImpl">
        <property name="sjt" ref="SimpleJdbc"></property>
     </bean>
+    <bean id="UserDaoImpl" class="servlet.users.UserDaoImpl">
+        <property name="sjt" ref="SimpleJdbc"></property>
+    </bean>
     <bean id="Tasks" class="servlet.tasks.TaskDaoImpl">
         <property name="sjt" ref="SimpleJdbc"></property>
     </bean>

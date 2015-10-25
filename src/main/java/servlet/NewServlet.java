@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import servlet.projects.ProjectDaoImpl;
 import servlet.projects.Projects;
+import servlet.users.UserDaoImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -64,5 +65,19 @@ public class NewServlet extends HttpServlet  {
             }
             getServletContext().getRequestDispatcher("/WEB-INF/com.samsolutions.project/insert.jsp").forward(request, response);
         }
+        else if (path.contains("/act/login")){
+            UserDaoImpl us =(UserDaoImpl)context.getBean("UserDaoImpl");
+            String username =  request.getParameter("login");
+            String password = request.getParameter("password");
+
+            if(username != null && password != null){
+                if(us.search(username,password).size()!=0) {
+                    request.setAttribute("list", r.findAll());
+                    getServletContext().getRequestDispatcher("/WEB-INF/com.samsolutions.project/first.jsp").forward(request, response);
+                }
+            }
+
+        }
+        getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 }

@@ -83,7 +83,7 @@
 <button class="btn btn-default" type="submit">Cancel</button>
 </form>
 
-<form action="/tasks/view">
+<form action="/tasks/viewTasks">
   <button class="btn btn-default" type="submit">view tasks</button>
 </form>
 </body>
