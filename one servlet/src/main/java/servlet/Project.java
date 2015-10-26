@@ -7,6 +7,7 @@ import servlet.projects.ProjectDaoImpl;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -15,10 +16,22 @@ import java.io.IOException;
 public class Project implements Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String page = null;
+        String path = request.getRequestURI();
+        HttpSession session = request.getSession(true);
         ApplicationContext context = new ClassPathXmlApplicationContext("module.xml");
         ProjectDaoImpl pr = (ProjectDaoImpl) context.getBean("ProjectDaoImpl");
         request.setAttribute("list",pr.findAll());
         page = "/first.jsp";
+        String st = request.getParameter("add");
+
+        if(st!=null) {
+
+            session.setAttribute("project", (Integer.parseInt(st)));
+        }
+        if (path.contains("/projects.action")){
+            page = "/controller?command=iterations";
+        }
+
         return page;
     }
 }

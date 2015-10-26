@@ -16,7 +16,7 @@
 </head>
 <body>
 <hr/>
-<form name="loginForm" method="POST" action ="controller" class="form-horizontal">
+<form name="loginForm" method="POST" action ="login.action" class="form-horizontal">
   <input type="hidden" name="command" value="login" />
 <div class="parent">
 

@@ -20,9 +20,9 @@
 <form action="/act/insert">
     <br><br><br>    <button class="btn btn-primary btn-lg" type="submit">Add</button>
 </form>
-<form name="ProjectForm" method="POST" action ="controller">
-    <input type="hidden" name="command" value="projects" />
+<form name="ProjectForm" method="POST" action ="projects.action">
 
+    <input type="hidden" name="command" value="projects" />
         <thead>
         <tr>
         <br>  <th>projectName</th><br>

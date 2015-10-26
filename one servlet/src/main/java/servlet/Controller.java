@@ -32,10 +32,15 @@ public class Controller extends HttpServlet implements  javax.servlet.Servlet {
             String page = null;
             Command command = requestH.getCommand(request);
               page = command.execute(request, response);
-              request.getServletContext().getContextPath();
-             response.sendRedirect(page);
-          // RequestDispatcher dispatcher =
-           //  getServletContext().getRequestDispatcher(page);
-      //  dispatcher.forward(request, response);
+
+             if(!page.contains("?")) {
+                 RequestDispatcher dispatcher =
+                         getServletContext().getRequestDispatcher(page);
+                 dispatcher.forward(request, response);
+             }
+        else {
+            request.getServletContext().getContextPath();
+            response.sendRedirect(page);
+        }
     }
 }

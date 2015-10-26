@@ -23,6 +23,7 @@ public class RequestHelp {
 
         commands.put("login", new Login());
         commands.put("projects",new Project());
+        commands.put("iterations", new Iteration());
           }
     public Command getCommand(HttpServletRequest request) {
 
