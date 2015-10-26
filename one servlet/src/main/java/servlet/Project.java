@@ -18,7 +18,7 @@ public class Project implements Command {
         ApplicationContext context = new ClassPathXmlApplicationContext("module.xml");
         ProjectDaoImpl pr = (ProjectDaoImpl) context.getBean("ProjectDaoImpl");
         request.setAttribute("list",pr.findAll());
-        page = "/WEB-INF/com.samsolutions.project/first.jsp";
+        page = "/first.jsp";
         return page;
     }
 }

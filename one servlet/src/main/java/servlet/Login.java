@@ -15,7 +15,7 @@ import java.io.IOException;
  */
 public class Login  implements Command {
     private RequestHelp command;
-    private Project pr;
+    private Project p;
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String page = null;
         ApplicationContext context = new ClassPathXmlApplicationContext("module.xml");
@@ -24,11 +24,12 @@ public class Login  implements Command {
         String pass = request.getParameter("password");
 
         if (use.search(login,pass).size()!=0) {
-            
-            page = "/WEB-INF/com.samsolutions.project/first.jsp";
+
+            page = "/first.jsp";
+         //   command.setCommands((HashMap<"project", new Project()> commands);
 
         }
-        else page ="/WEB-INF/login.jsp";
+        else page ="/login.jsp";
         return page;
     }
 }

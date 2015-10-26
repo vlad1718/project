@@ -10,7 +10,7 @@ import java.io.IOException;
  */
 public class NoCommand implements Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String page = "/WEB-INF/login.jsp";
+        String page = "/login.jsp";
         return page;
     }
 }
