@@ -2,6 +2,7 @@ package servlet;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import servlet.Commands.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -30,6 +31,7 @@ public class RequestHelp {
         commands.put("projects",(Project)context.getBean("project"));
         commands.put("iterations", (Iteration)context.getBean("iteration"));
         commands.put("tasks",(Task)context.getBean("tasks"));
+
           }
     public Command getCommand(HttpServletRequest request) {
 

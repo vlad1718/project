@@ -1,7 +1,8 @@
-package servlet;
+package servlet.Commands;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import servlet.Command;
 import servlet.iterations.IterationDaoImpl;
 import servlet.iterations.Iterations;
 

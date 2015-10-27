@@ -32,7 +32,7 @@ public class ProjectDaoImpl implements ProjectDao {
     public void insert(Projects project) {
 
         String sql = "INSERT INTO projects " +
-                "(idProject, projectName, startDate,completeDate) VALUES (0,:projectName, :startDate, :completeDate)";
+                "(projectName, startDate,completeDate) VALUES (:projectName, :startDate, :completeDate)";
 
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("projectName", project.getProjectName());

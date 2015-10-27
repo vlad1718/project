@@ -26,19 +26,20 @@
     <property name="dataSource" ref="DataSource"></property>
 
 </bean>
-<bean id="login" class="servlet.Login" >
+<bean id="login" class="servlet.Commands.Login" >
     <property name="user" ref="UserDaoImpl"></property>
 
 
 </bean>
-    <bean id="project" class="servlet.Project">
+    <bean id="project" class="servlet.Commands.Project">
         <property name="p" ref="ProjectDaoImpl"></property>
     </bean>
-    <bean id="iteration" class="servlet.Iteration">
+    <bean id="iteration" class="servlet.Commands.Iteration">
         <property name="it" ref="Iter"></property>
     </bean>
-    <bean id="tasks" class="servlet.Task">
+    <bean id="tasks" class="servlet.Commands.Task">
         <property name="task" ref="Tasks"></property>
     </bean>
+
 
 </beans>

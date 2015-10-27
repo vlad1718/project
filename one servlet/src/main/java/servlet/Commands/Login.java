@@ -1,13 +1,16 @@
-package servlet;
+package servlet.Commands;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import servlet.Command;
 import servlet.users.UserDaoImpl;
+import servlet.users.Users;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.registry.infomodel.User;
 import java.io.IOException;
 
 /**
@@ -26,7 +29,7 @@ public class Login  implements Command {
 
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String page = null;
-
+        String path = request.getRequestURI();
 
         String login = request.getParameter("login");
         String pass = request.getParameter("password");
@@ -36,7 +39,16 @@ public class Login  implements Command {
 
         }
         else page ="/login.jsp";
+        if(path.contains("/Registrate.action")){
+            String username = request.getParameter("username");
+            if(username!=null){
+                String email = request.getParameter("email");
+                String password = request.getParameter("password");
+                Users us = new Users(username,email,password);
+                user.insert(us);
+            }
 
+        }
         return page;
     }
 }

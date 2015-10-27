@@ -22,7 +22,8 @@ public class IterationDaoImpl implements IterationDao {
     private SimpleJdbcTemplate sjt;
     public void insert(Iterations iter) {
         String sql = "INSERT INTO iterations " +
-                "(it_id, it_name, it_description, it_startDate, it_endDate, it_status, pr_id) VALUES (0,:it_name, :it_description, :it_startDate, :it_endDate, :it_status, :pr_id)";
+                "( it_name, it_description, it_startDate, it_endDate, it_status, pr_id) VALUES (:it_name, :it_description, :it_startDate, :it_endDate, :it_status, :pr_id)";
+
 
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("it_name", iter.getIt_name());
@@ -45,11 +46,11 @@ public class IterationDaoImpl implements IterationDao {
     }
 
     public List<Iterations> findIter(int n){
-        String sql = "SELECT * FROM iterations where pr_id='" + n +"'";
+        String sql = "SELECT * FROM iterations where pr_id=?";
 
         List<Iterations> iter =
                 getSjt().query(sql,
-                        ParameterizedBeanPropertyRowMapper.newInstance(Iterations.class));
+                        ParameterizedBeanPropertyRowMapper.newInstance(Iterations.class),n);
 
         return iter;
     }

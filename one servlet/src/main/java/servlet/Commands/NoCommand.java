@@ -1,4 +1,6 @@
-package servlet;
+package servlet.Commands;
+
+import servlet.Command;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

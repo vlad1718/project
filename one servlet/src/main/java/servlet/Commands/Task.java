@@ -1,5 +1,6 @@
-package servlet;
+package servlet.Commands;
 
+import servlet.Command;
 import servlet.tasks.TaskDaoImpl;
 import servlet.tasks.Tasks;
 

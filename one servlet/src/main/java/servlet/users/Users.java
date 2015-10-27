@@ -7,6 +7,16 @@ public class Users {
     private long  u_id;
     private String u_username;
     private String u_email;
+
+    public Users(){
+
+    }
+    public Users(String u_username, String u_email, String u_password) {
+        this.u_username = u_username;
+        this.u_email = u_email;
+        this.u_password = u_password;
+    }
+
     private String u_password;
 
     @Override
