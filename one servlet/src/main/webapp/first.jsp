@@ -17,7 +17,8 @@
 </head>
 <body>
 
-<form action="/act/insert">
+<form name="ProjectAdd" method="post" action="projects/add.action">
+    <input type="hidden" name="command" value="projects" />
     <br><br><br>    <button class="btn btn-primary btn-lg" type="submit">Add</button>
 </form>
 <form name="ProjectForm" method="POST" action ="projects.action">

@@ -1,5 +1,8 @@
 package servlet;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 
@@ -7,6 +10,8 @@ import java.util.HashMap;
  * Created by User on 24.10.2015.
  */
 public class RequestHelp {
+
+
     private static RequestHelp instance = null;
 
     public HashMap<String, Command> getCommands() {
@@ -20,10 +25,11 @@ public class RequestHelp {
     private HashMap<String, Command> commands =
             new HashMap<String, Command>();
     private RequestHelp() {
-
-        commands.put("login", new Login());
-        commands.put("projects",new Project());
-        commands.put("iterations", new Iteration());
+        ApplicationContext context = new ClassPathXmlApplicationContext("module.xml");
+        commands.put("login", (Login)context.getBean("login"));
+        commands.put("projects",(Project)context.getBean("project"));
+        commands.put("iterations", (Iteration)context.getBean("iteration"));
+        commands.put("tasks",(Task)context.getBean("tasks"));
           }
     public Command getCommand(HttpServletRequest request) {
 

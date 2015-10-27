@@ -36,7 +36,7 @@
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-success">Enter</button>
-      <p><a href="WEB-INF/RegistrateUser.jsp">Registration</a></p>
+      <p><a href="RegistrateUser.jsp">Registration</a></p>
     </div>
 
   </div>

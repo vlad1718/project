@@ -14,16 +14,24 @@ import java.io.IOException;
  * Created by User on 24.10.2015.
  */
 public class Login  implements Command {
+    private UserDaoImpl user;
+
+    public UserDaoImpl getUser() {
+        return user;
+    }
+
+    public void setUser(UserDaoImpl user) {
+        this.user = user;
+    }
 
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String page = null;
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("module.xml");
-        UserDaoImpl use = (UserDaoImpl) context.getBean("UserDaoImpl");
+
         String login = request.getParameter("login");
         String pass = request.getParameter("password");
 
-        if (use.search(login,pass).size()!=0) {
+        if (user.search(login,pass).size()!=0) {
             page = "/controller?command=projects";
 
         }
