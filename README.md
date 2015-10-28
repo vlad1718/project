@@ -1,17 +1,22 @@
 Management Project
 
-Building the Application
+# Building the Application
+------------------------
 The project aims to demonstrate dependencies within users projects(its iterations, tasks)
 
-Requirements
-MySQL
-Maven
-Build
-| mvn clean package
+# Requirements
+ - MySQL
+ - [Maven](http://maven.apache.org/ "Maven")
+ 
+# Build
 
-Running the Application
-| mvn tomcat:run
+|	mvn clean package
 
-Configuration
+	
+# Running the Application
 
-Configure database connection properties in config.properties
+
+| mvn comcat:run
+
+## Configuration
+ Configure database connection properties in `config.properties`
