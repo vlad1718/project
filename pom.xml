@@ -128,15 +128,14 @@
         </plugin>
       </plugins>
     </pluginManagement>
-<<<<<<< HEAD
-=======
+
   </build>
 
 </project>
   </dependencies>
   <build>
     <finalName>NewServlet</finalName>
->>>>>>> d427ad19c7aff8d6797b4d73955ed0cb364f3a80
+
   </build>
 <modules>
     <module>simple</module>
