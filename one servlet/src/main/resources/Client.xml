@@ -3,7 +3,22 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-init-method="migrate">
+    <bean id="main" class="servlet.RequestHelp">
+        <constructor-arg>
+            <map>
+                <entry key="/login" value-ref="login"/>
+                <entry key="/registration" value-ref="registrate"/>
+                <entry key="/projects" value-ref="project"/>
+                <entry key="/iterations" value-ref="iteration"/>
+                <entry key="/tasks" value-ref="tasks"/>
+                <entry key="/projects/add" value-ref="addProject"/>
+                <entry key="/iterations/add" value-ref="addIteration"/>
+            </map>
+        </constructor-arg>
 
+
+
+    </bean>
     <bean id="ProjectDaoImpl"  class="servlet.projects.ProjectDaoImpl">
         <property name="ds" ref="SimpleJdbc"></property>
 
@@ -40,6 +55,14 @@
     <bean id="tasks" class="servlet.Commands.Task">
         <property name="task" ref="Tasks"></property>
     </bean>
-
+    <bean id ="registrate" class="servlet.Commands.Registration">
+        <property name="user" ref="UserDaoImpl"></property>
+    </bean>
+    <bean id="addProject" class="servlet.Commands.AddProject">
+        <property name="p" ref="ProjectDaoImpl"></property>
+    </bean>
+    <bean id="addIteration" class="servlet.Commands.AddIteration">
+        <property name="it" ref="Iter"></property>
+    </bean>
 
 </beans>

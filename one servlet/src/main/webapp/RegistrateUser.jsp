@@ -15,8 +15,8 @@
     <title></title>
 </head>
 <body>
-<form name="RegisterForm" method="POST" action ="Registrate.action" class="form-horizontal">
-<input type="hidden" name="command" value="login" />
+<form name="RegisterForm" method="POST" action ="registration" class="form-horizontal">
+
   <div class="parent">
 
     <div class="form-group" >

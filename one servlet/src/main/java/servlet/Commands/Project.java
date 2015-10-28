@@ -31,8 +31,8 @@ public class Project implements Command {
 
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String page = null;
-        String path = request.getRequestURI();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-dd-MM");
+
+
         HttpSession session = request.getSession(true);
 
         request.setAttribute("list", p.findAll());
@@ -42,8 +42,9 @@ public class Project implements Command {
         if(st!=null) {
 
             session.setAttribute("project", (Integer.parseInt(st)));
+            page ="/iterations";
         }
-        if (path.contains("/projects.action")){
+      /*  if (path.contains("/projects.action")){
             page = "/controller?command=iterations";
         }
         if (path.contains("/projects/add.action")){
@@ -73,7 +74,7 @@ public class Project implements Command {
         }
 
             page = "/controller?command=projects";
-             }
+             }*/
         return page;
     }
 }

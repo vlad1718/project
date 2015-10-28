@@ -18,7 +18,7 @@
 <body>
 <form name="IterationForm" method="POST" action ="iteration/view.action">
 
-  <input type="hidden" name="command" value="iterations" />
+
   <%
 
     for (Iterations iter : (List<Iterations>) request.getAttribute("list")) {
@@ -32,11 +32,10 @@
   %>
   </form>
 <form name="IterationForm" method="POST" action ="controller?command=projects">
-  <input type="hidden" name="command" value="iterations" />
+
   <button class="btn btn-danger" type="sumbit">Cancel</button>
 </form>
-<form name="IterationForm" method="POST" action ="iteration/add.action">
-  <input type="hidden" name="command" value="iterations" />
+<form name="IterationForm" method="POST" action ="iterations/add">
   <button class="btn btn-primary" type="sumbmit">add iter</button>
 </form>
 </body>

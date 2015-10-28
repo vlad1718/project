@@ -14,16 +14,16 @@
     <title></title>
   <link href="<c:url value="/resources/styles/bootstrap.css" />" rel="stylesheet">
   <script src="<c:url value="/resources/javascript/bootstrap.js" />"></script>
+
 </head>
 <body>
 
-<form name="ProjectAdd" method="post" action="projects/add.action">
-    <input type="hidden" name="command" value="projects" />
+<form name="ProjectAdd" method="post" action="projects/add">
+
     <br><br><br>    <button class="btn btn-primary btn-lg" type="submit">Add</button>
 </form>
-<form name="ProjectForm" method="POST" action ="projects.action">
+<form name="ProjectForm" method="POST" action ="projects">
 
-    <input type="hidden" name="command" value="projects" />
         <thead>
         <tr>
         <br>  <th>projectName</th><br>

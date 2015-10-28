@@ -33,10 +33,12 @@ public class Iteration implements Command {
         String page = null;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-dd-MM");
         HttpSession session = request.getSession(true);
-        String path = request.getRequestURI();
+
 
         request.setAttribute("list", it.findIter((Integer) session.getAttribute("project")));
         page = "/listIter.jsp";
+
+     /*   String path = request.getRequestURI();
         if (path.contains("iteration/add.action")) {
             page = "/newIter.jsp";
         }
@@ -88,7 +90,7 @@ public class Iteration implements Command {
         }
         if(path.contains("/iteration/tasks")){
             page = "/controller?command=tasks";
-        }
+        }*/
         return page;
 
     }

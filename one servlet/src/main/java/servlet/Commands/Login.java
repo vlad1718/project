@@ -10,6 +10,7 @@ import servlet.users.Users;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.xml.registry.infomodel.User;
 import java.io.IOException;
 
@@ -30,25 +31,18 @@ public class Login  implements Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String page = null;
         String path = request.getRequestURI();
-
+        HttpSession session = request.getSession();
         String login = request.getParameter("login");
         String pass = request.getParameter("password");
 
         if (user.search(login,pass).size()!=0) {
-            page = "/controller?command=projects";
+            session.setAttribute("login",true);
+            page = "/projects";
 
         }
         else page ="/login.jsp";
-        if(path.contains("/Registrate.action")){
-            String username = request.getParameter("username");
-            if(username!=null){
-                String email = request.getParameter("email");
-                String password = request.getParameter("password");
-                Users us = new Users(username,email,password);
-                user.insert(us);
-            }
 
-        }
+
         return page;
     }
 }

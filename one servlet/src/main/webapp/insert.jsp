@@ -17,8 +17,8 @@
   <script src="<c:url value="/resources/javascript/bootstrap.js" />"></script>
 </head>
 <body>
-<form name = "ProjectAdd"  action="insert.action" role="form">
-  <input type="hidden" name="command" value="projects" />
+<form name = "ProjectAdd"  action="add" role="form">
+
   <div class = "form-group">
     <label for="NameProject">NameProject</label>
     <input type ="text" class="form-control" id="NameProject" name="NameProject" placeholder="InputNameProject">

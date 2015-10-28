@@ -6,37 +6,26 @@ import servlet.Commands.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by User on 24.10.2015.
  */
 public class RequestHelp {
 
-
     private static RequestHelp instance = null;
 
-    public HashMap<String, Command> getCommands() {
-        return commands;
-    }
 
-    public void setCommands(HashMap<String, Command> commands) {
-        this.commands = commands;
-    }
 
-    private HashMap<String, Command> commands =
+    private static HashMap<String, Command> commands =
             new HashMap<String, Command>();
-    private RequestHelp() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("module.xml");
-        commands.put("login", (Login)context.getBean("login"));
-        commands.put("projects",(Project)context.getBean("project"));
-        commands.put("iterations", (Iteration)context.getBean("iteration"));
-        commands.put("tasks",(Task)context.getBean("tasks"));
-
+    private RequestHelp(Map map) {
+           this.commands = (HashMap<String, Command>) map;
           }
     public Command getCommand(HttpServletRequest request) {
+        String path = request.getRequestURI();
 
-        String action = request.getParameter("command");
-        Command command = commands.get(action);
+        Command command = commands.get(path);
         if (command == null) {
             command = new NoCommand();
         }
@@ -45,8 +34,10 @@ public class RequestHelp {
 
     public static RequestHelp getInstance() {
         if (instance == null) {
-            instance = new RequestHelp();
+            instance = new RequestHelp(commands);
         }
         return instance;
     }
+
+
 }

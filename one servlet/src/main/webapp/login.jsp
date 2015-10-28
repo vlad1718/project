@@ -17,22 +17,28 @@
 </head>
 <body>
 <hr/>
-<form name="loginForm" method="POST" action ="login.action" class="form-horizontal">
-  <input type="hidden" name="command" value="login" />
+<form name="loginForm" method="POST" action ="login" class="form-horizontal">
+
+
 <div class="parent">
 
   <div class="form-group" >
 
     <label for="login" class="col-sm-2 control-label">login</label>
     <div class="col-sm-4">
-      <input type="text" class="form-control" id="login" name="login" onkeyup="checkCapsWarning(event)" onfocus="checkCapsWarning(event)" onblur="removeCapsWarning()" placeholder="Логин">
+
+      <input type="text" class="form-control" id="login" name="login" onkeyup="checkCapsWarning(event)" onfocus="checkCapsWarning(event)" onblur="removeCapsWarning()" placeholder="Логин"/>
+
+
     </div>
   </div>
+
   <div class="form-group">
     <label for="password" class="col-sm-2 control-label">Password</label>
     <div class="col-sm-4">
       <input type="password" class="form-control" id="password"name="password" onkeyup="checkCapsWarning(event)" onfocus="checkCapsWarning(event)" onblur="removeCapsWarning()" placeholder="Пароль">
     </div>
+
 </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
@@ -40,10 +46,14 @@
       <p><a href="RegistrateUser.jsp">Registration</a></p>
     </div>
 
-  </div>
-
 </div>
+    </div>
+
+
+
 
 </form>
+<div style="display:none;color:red" id="capsIndicator" >нажат CapsLock!</div>
+</div>
 </body>
 </html>

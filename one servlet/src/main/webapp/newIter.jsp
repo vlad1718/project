@@ -14,8 +14,8 @@
   <script src="<c:url value="/resources/javascript/bootstrap.js" />"></script>
 </head>
 <body>
-<form name="IterationForm" method="POST" action ="insert.action" role="form">
-  <input type="hidden" name="command" value="iterations" />
+<form name="IterationForm" method="POST" action ="add" role="form">
+
   <div class = "container">
   <div class = "form-group">
     <label for="NameIteration">NameIteration</label>
