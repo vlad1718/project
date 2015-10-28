@@ -16,7 +16,7 @@ The project aims to demonstrate dependencies within users projects(its iteration
 # Running the Application
 
 
-| mvn comcat:run
+| mvn tomcat:run
 
 ## Configuration
  Configure database connection properties in `config.properties`
