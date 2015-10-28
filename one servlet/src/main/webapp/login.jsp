@@ -13,6 +13,7 @@
   <link href="<c:url value="/resources/styles/bootstrap.css" />" rel="stylesheet">
   <link href="<c:url value="/resources/styles/center.css" />" rel="stylesheet">
   <script src="<c:url value="/resources/javascript/bootstrap.js" />"></script>
+  <script src="resources/javascript/capsLock.js"></script>
 </head>
 <body>
 <hr/>
@@ -24,13 +25,13 @@
 
     <label for="login" class="col-sm-2 control-label">login</label>
     <div class="col-sm-4">
-      <input type="text" class="form-control" id="login" name="login" placeholder="Логин">
+      <input type="text" class="form-control" id="login" name="login" onkeyup="checkCapsWarning(event)" onfocus="checkCapsWarning(event)" onblur="removeCapsWarning()" placeholder="Логин">
     </div>
   </div>
   <div class="form-group">
     <label for="password" class="col-sm-2 control-label">Password</label>
     <div class="col-sm-4">
-      <input type="password" class="form-control" id="password"name="password" placeholder="Пароль">
+      <input type="password" class="form-control" id="password"name="password" onkeyup="checkCapsWarning(event)" onfocus="checkCapsWarning(event)" onblur="removeCapsWarning()" placeholder="Пароль">
     </div>
 </div>
   <div class="form-group">
