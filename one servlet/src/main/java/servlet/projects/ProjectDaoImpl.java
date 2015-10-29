@@ -1,8 +1,6 @@
 package servlet.projects;
 
-import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
-import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
-
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import java.util.HashMap;
 import java.util.List;
@@ -15,16 +13,16 @@ import java.util.Map;
 public class ProjectDaoImpl implements ProjectDao {
 
 
-    public SimpleJdbcTemplate getSjt() {
+    public NamedParameterJdbcTemplate getSjt() {
         return sjt;
     }
 
-    private SimpleJdbcTemplate sjt;
+    private NamedParameterJdbcTemplate sjt;
 
 
 
 
-    public void setDs(SimpleJdbcTemplate ds) {
+    public void setDs(NamedParameterJdbcTemplate ds) {
 
         this.sjt = ds;
     }
@@ -45,11 +43,10 @@ public class ProjectDaoImpl implements ProjectDao {
 
         String sql = "SELECT * FROM projects";
 
-        List<Projects> projects =
-                getSjt().query(sql,
-                        ParameterizedBeanPropertyRowMapper.newInstance(Projects.class));
+        List<Projects> project =
+                (List<Projects>) getSjt().query(sql, new ProjectMapper());
 
-        return projects;
+        return project;
     }
 
 

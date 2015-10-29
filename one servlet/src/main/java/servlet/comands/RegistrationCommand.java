@@ -1,7 +1,7 @@
-package servlet.Commands;
+package servlet.comands;
 
 import servlet.Command;
-import servlet.users.UserDaoImpl;
+import servlet.users.UserDao;
 import servlet.users.Users;
 
 import javax.servlet.ServletException;
@@ -12,16 +12,16 @@ import java.io.IOException;
 /**
  * Created by User on 28.10.2015.
  */
-public class Registration implements Command {
-    public UserDaoImpl getUser() {
+public class RegistrationCommand implements Command {
+    public UserDao getUser() {
         return user;
     }
 
-    public void setUser(UserDaoImpl user) {
+    public void setUser(UserDao user) {
         this.user = user;
     }
 
-    private UserDaoImpl user;
+    private UserDao user;
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String page = "/login.jsp";
@@ -29,7 +29,7 @@ public class Registration implements Command {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             Users us = new Users(username,email,password);
-            user.insert(us);
+          //  user.insert(us);
 
 
         }

@@ -19,15 +19,7 @@ public class Users {
 
     private String u_password;
 
-    @Override
-    public String toString() {
-        return "Users{" +
-                "u_id=" + u_id +
-                ", u_username='" + u_username + '\'' +
-                ", u_email='" + u_email + '\'' +
-                ", u_password='" + u_password + '\'' +
-                '}';
-    }
+
 
     public long getU_id() {
         return u_id;

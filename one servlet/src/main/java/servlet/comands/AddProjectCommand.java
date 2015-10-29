@@ -1,7 +1,7 @@
-package servlet.Commands;
+package servlet.comands;
 
 import servlet.Command;
-import servlet.projects.ProjectDaoImpl;
+import servlet.projects.ProjectDao;
 import servlet.projects.Projects;
 
 import javax.servlet.ServletException;
@@ -15,27 +15,30 @@ import java.util.Date;
 /**
  * Created by User on 28.10.2015.
  */
-public class AddProject implements Command {
-    private ProjectDaoImpl p;
+public class AddProjectCommand implements Command {
+    public static final String YYYY_DD_MM = "yyyy-dd-MM";
+    public static final String INSERT_JSP = "/insert.jsp";
+    public static final String ACT = "act";
+    public static final String NAME_PROJECT = "NameProject";
+    public static final String DATE_BEGIN = "DateBegin";
+    public static final String DATE_COMPLETE = "DateComplete";
+    private ProjectDao p;
 
-    public ProjectDaoImpl getP() {
-        return p;
-    }
 
-    public void setP(ProjectDaoImpl p) {
+    public void setP(ProjectDao p) {
         this.p = p;
     }
 
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-dd-MM");
-        String page = "/insert.jsp";
-        String act = request.getParameter("act");
+        SimpleDateFormat sdf = new SimpleDateFormat(YYYY_DD_MM);
+        String page = INSERT_JSP;
+        String act = request.getParameter(ACT);
         if (act != null) {
-            String name = request.getParameter("NameProject");
+            String name = request.getParameter(NAME_PROJECT);
             if (name != null) {
 
-                String startDate = request.getParameter("DateBegin");
-                String completeDate = request.getParameter("DateComplete");
+                String startDate = request.getParameter(DATE_BEGIN);
+                String completeDate = request.getParameter(DATE_COMPLETE);
                 Date ps = null;
                 Date ds = null;
                 try {

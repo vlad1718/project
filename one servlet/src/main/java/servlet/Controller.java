@@ -2,11 +2,11 @@ package servlet;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import servlet.Commands.Login;
+import servlet.comands.LoginCommand;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,10 +17,19 @@ import java.io.IOException;
  * Created by User on 24.10.2015.
  */
 
-public class Controller extends HttpServlet implements  javax.servlet.Servlet {
-    RequestHelp requestH = RequestHelp.getInstance();
+public class Controller extends HttpServlet  {
+    public static final String MAIN = "main";
+    public static final String LOGIN = "login";
+    public static final String LOGIN_JSP = "/login.jsp";
+    public static final String MODULE_XML = "module.xml";
+    private RequestHelp rq;
     public Controller(){
         super();
+    }
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
+        ApplicationContext cont = new ClassPathXmlApplicationContext(MODULE_XML);
+        rq = (RequestHelp) cont.getBean(MAIN);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -35,12 +44,10 @@ public class Controller extends HttpServlet implements  javax.servlet.Servlet {
     private void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String page = null;
-        ApplicationContext cont = new ClassPathXmlApplicationContext("module.xml");
-         RequestHelp rq = (RequestHelp) cont.getBean("main");
-        Command command = requestH.getCommand(request);
+        Command command = rq.getCommand(request);
         HttpSession session = request.getSession(true);
-        session.setAttribute("login", session.getAttribute("login") == null ? false : session.getAttribute("login"));
-        if (session.getAttribute("login").equals(true) || command instanceof Login)
+        session.setAttribute(LOGIN, session.getAttribute(LOGIN) == null ? false : session.getAttribute(LOGIN));
+        if (session.getAttribute(LOGIN).equals(true) || command instanceof LoginCommand)
         {
             page = command.execute(request, response);
 
@@ -49,11 +56,11 @@ public class Controller extends HttpServlet implements  javax.servlet.Servlet {
                         getServletContext().getRequestDispatcher(page);
                 dispatcher.forward(request, response);
             } else {
-                request.getServletContext().getContextPath();
-                response.sendRedirect(page);
+//                request.getServletContext().getContextPath();
+                response.sendRedirect(request.getRequestURI()+"/"+page);
             }
         }
-        else response.sendRedirect("/login.jsp");
+        else response.sendRedirect(LOGIN_JSP);
     }
 
 }

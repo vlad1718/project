@@ -1,7 +1,7 @@
-package servlet.Commands;
+package servlet.comands;
 
 import servlet.Command;
-import servlet.iterations.IterationDaoImpl;
+import servlet.iterations.IterationDao;
 import servlet.iterations.Iterations;
 
 import javax.servlet.ServletException;
@@ -16,14 +16,9 @@ import java.util.Date;
 /**
  * Created by User on 28.10.2015.
  */
-public class AddIteration implements Command {
-    private IterationDaoImpl it;
-
-    public IterationDaoImpl getIt() {
-        return it;
-    }
-
-    public void setIt(IterationDaoImpl it) {
+public class AddIterationCommand implements Command {
+    private IterationDao it;
+    public void setIt(IterationDao it) {
         this.it = it;
     }
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

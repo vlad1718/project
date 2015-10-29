@@ -36,18 +36,7 @@ public class Iterations {
     }
 
     private int pr_id;
-    @Override
-    public String toString() {
-        return "Iterations{" +
-                "it_id=" + it_id +
-                ", it_name='" + it_name + '\'' +
 
-                ", it_description='" + it_description + '\'' +
-                ", it_startDate=" + it_startDate +
-                ", it_endDate=" + it_endDate +
-                ", it_status='" + it_status + '\'' +
-                '}';
-    }
 
     public int getIt_id() {
         return it_id;

@@ -9,7 +9,7 @@ import java.io.IOException;
  * Created by User on 23.10.2015.
  */
 public interface Command {
-    public String execute(HttpServletRequest request,
+    String execute(HttpServletRequest request,
                           HttpServletResponse response)
             throws ServletException, IOException;
 }

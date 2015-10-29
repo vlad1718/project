@@ -1,31 +1,24 @@
-package servlet.Commands;
+package servlet.comands;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import servlet.Command;
-import servlet.iterations.IterationDaoImpl;
-import servlet.iterations.Iterations;
+import servlet.iterations.IterationDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
- * Created by User on 26.10.2015.
+ * Created by vl_gr on 26.10.2015.
  */
-public class Iteration implements Command {
-    private IterationDaoImpl it;
+public class IterationCommand implements Command {
+    private IterationDao it;
 
-    public IterationDaoImpl getIt() {
-        return it;
-    }
 
-    public void setIt(IterationDaoImpl it) {
+
+    public void setIt(IterationDao it) {
         this.it = it;
     }
 

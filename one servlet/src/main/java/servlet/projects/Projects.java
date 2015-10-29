@@ -11,9 +11,9 @@ public class Projects {
     private Date startDate;
     private Date completeDate;
 
-    Projects(){
+    public Projects(){
 
-    }
+}
     public Projects(int idProject, String projectName, Date startDate, Date completeDate) {
         this.idProject = idProject;
         this.projectName = projectName;
@@ -21,15 +21,7 @@ public class Projects {
         this.completeDate = completeDate;
     }
 
-    @Override
-    public String toString() {
-        return "Projects{" +
-                "idProject=" + idProject +
-                ", projectName='" + projectName + '\'' +
-                ", startDate=" + startDate +
-                ", completeDate=" + completeDate +
-                '}';
-    }
+
 
     public int getIdProject() {
         return idProject;

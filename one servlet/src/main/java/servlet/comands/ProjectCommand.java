@@ -1,40 +1,28 @@
-package servlet.Commands;
+package servlet.comands;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import servlet.Command;
-import servlet.projects.ProjectDaoImpl;
-import servlet.projects.Projects;
+import servlet.projects.ProjectDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * Created by User on 25.10.2015.
  */
-public class Project implements Command {
-    private ProjectDaoImpl p;
+public class ProjectCommand implements Command {
+    private ProjectDao p;
 
-    public ProjectDaoImpl getP() {
-        return p;
-    }
 
-    public void setP(ProjectDaoImpl p) {
+    public void setP(ProjectDao p) {
         this.p = p;
     }
 
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String page = null;
-
-
         HttpSession session = request.getSession(true);
-
         request.setAttribute("list", p.findAll());
         page = "/first.jsp";
         String st = request.getParameter("add");

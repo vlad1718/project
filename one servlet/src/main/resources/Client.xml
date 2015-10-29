@@ -20,48 +20,48 @@
 
     </bean>
     <bean id="ProjectDaoImpl"  class="servlet.projects.ProjectDaoImpl">
-        <property name="ds" ref="SimpleJdbc"></property>
+        <property name="ds" ref="NamedParameter"></property>
 
      </bean>
-    <bean id="SimpleJdbc" class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
+    <bean id="NamedParameter" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
 
         <constructor-arg type="javax.sql.DataSource" ref="DataSource"/>
     </bean>
     <bean id="Iter" class="servlet.iterations.IterationDaoImpl">
-       <property name="sjt" ref="SimpleJdbc"></property>
+       <property name="sjt" ref="NamedParameter"></property>
     </bean>
     <bean id="UserDaoImpl" class="servlet.users.UserDaoImpl">
-        <property name="sjt" ref="SimpleJdbc"></property>
+        <property name="sjt" ref="NamedParameter"></property>
     </bean>
 
     <bean id="Tasks" class="servlet.tasks.TaskDaoImpl">
-        <property name="sjt" ref="SimpleJdbc"></property>
+        <property name="sjt" ref="NamedParameter"></property>
     </bean>
     <bean id="flyway" class = "org.flywaydb.core.Flyway" init-method="migrate">
     <property name="dataSource" ref="DataSource"></property>
 
 </bean>
-<bean id="login" class="servlet.Commands.Login" >
+<bean id="login" class="servlet.comands.LoginCommand" >
     <property name="user" ref="UserDaoImpl"></property>
 
 
 </bean>
-    <bean id="project" class="servlet.Commands.Project">
+    <bean id="project" class="servlet.comands.ProjectCommand">
         <property name="p" ref="ProjectDaoImpl"></property>
     </bean>
-    <bean id="iteration" class="servlet.Commands.Iteration">
+    <bean id="iteration" class="servlet.comands.IterationCommand">
         <property name="it" ref="Iter"></property>
     </bean>
-    <bean id="tasks" class="servlet.Commands.Task">
+    <bean id="tasks" class="servlet.comands.TaskCommand">
         <property name="task" ref="Tasks"></property>
     </bean>
-    <bean id ="registrate" class="servlet.Commands.Registration">
+    <bean id ="registrate" class="servlet.comands.RegistrationCommand">
         <property name="user" ref="UserDaoImpl"></property>
     </bean>
-    <bean id="addProject" class="servlet.Commands.AddProject">
+    <bean id="addProject" class="servlet.comands.AddProjectCommand">
         <property name="p" ref="ProjectDaoImpl"></property>
     </bean>
-    <bean id="addIteration" class="servlet.Commands.AddIteration">
+    <bean id="addIteration" class="servlet.comands.AddIterationCommand">
         <property name="it" ref="Iter"></property>
     </bean>
 
