@@ -1,6 +1,7 @@
 package servlet.projects;
 
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
+import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,16 +14,16 @@ import java.util.Map;
 public class ProjectDaoImpl implements ProjectDao {
 
 
-    public NamedParameterJdbcTemplate getSjt() {
+    public SimpleJdbcTemplate getSjt() {
         return sjt;
     }
 
-    private NamedParameterJdbcTemplate sjt;
+    private SimpleJdbcTemplate sjt;
 
 
 
 
-    public void setDs(NamedParameterJdbcTemplate ds) {
+    public void setDs(SimpleJdbcTemplate ds) {
 
         this.sjt = ds;
     }
@@ -30,7 +31,7 @@ public class ProjectDaoImpl implements ProjectDao {
     public void insert(Projects project) {
 
         String sql = "INSERT INTO projects " +
-                "(projectName, startDate,completeDate) VALUES (:projectName, :startDate, :completeDate)";
+                "(idProject, projectName, startDate,completeDate) VALUES (0,:projectName, :startDate, :completeDate)";
 
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("projectName", project.getProjectName());
@@ -43,11 +44,13 @@ public class ProjectDaoImpl implements ProjectDao {
 
         String sql = "SELECT * FROM projects";
 
-        List<Projects> project =
-                (List<Projects>) getSjt().query(sql, new ProjectMapper());
+        List<Projects> projects =
+                getSjt().query(sql,
+                        ParameterizedBeanPropertyRowMapper.newInstance(Projects.class));
 
-        return project;
+        return projects;
     }
+
 
 
 

@@ -6,6 +6,6 @@ import java.util.List;
  * Created by User on 24.10.2015.
  */
 public interface UserDao {
-     Users search(String log, String pas);
+     List search(String log, String pas);
      void insert(Users user);
 }

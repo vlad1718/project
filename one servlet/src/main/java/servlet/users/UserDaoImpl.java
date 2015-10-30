@@ -1,32 +1,33 @@
 package servlet.users;
 
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
+import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
  * Created by User on 24.10.2015.
  */
 public class UserDaoImpl implements UserDao {
-    private NamedParameterJdbcTemplate sjt;
+    private SimpleJdbcTemplate sjt;
 
-    public NamedParameterJdbcTemplate getSjt() {
+    public SimpleJdbcTemplate getSjt() {
         return sjt;
     }
 
-    public void setSjt(NamedParameterJdbcTemplate sjt) {
+    public void setSjt(SimpleJdbcTemplate sjt) {
         this.sjt = sjt;
     }
 
-    public Users search(String u_username,String u_password) {
-        String sql = "select *from user where u_username=:u_username and u_password=u_password";
+    public List search(String log,String pas) {
+        String sql = "select *from user where u_username=? and u_password=?";
+        List<Users> users =
+                getSjt().query(sql,
+                        ParameterizedBeanPropertyRowMapper.newInstance(Users.class),log,pas);
 
-        Map<String, Object> argMap = new HashMap<String, Object>();
-        argMap.put("u_username", u_username);
-        argMap.put("u_password", u_password);
-        Users user = (Users) getSjt().queryForObject(sql, argMap, new UserMapper());
-        return user;
+        return users;
     }
     public void insert(Users user) {
 

@@ -1,8 +1,7 @@
 package servlet.iterations;
 
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
+import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
 
 import java.util.HashMap;
 import java.util.List;
@@ -12,19 +11,18 @@ import java.util.Map;
  * Created by User on 20.10.2015.
  */
 public class IterationDaoImpl implements IterationDao {
-    public NamedParameterJdbcTemplate getSjt() {
+    public SimpleJdbcTemplate getSjt() {
         return sjt;
     }
 
-    public void setSjt(NamedParameterJdbcTemplate sjt) {
+    public void setSjt(SimpleJdbcTemplate sjt) {
         this.sjt = sjt;
     }
 
-    private NamedParameterJdbcTemplate sjt;
+    private SimpleJdbcTemplate sjt;
     public void insert(Iterations iter) {
         String sql = "INSERT INTO iterations " +
-                "( it_name, it_description, it_startDate, it_endDate, it_status, pr_id) VALUES (:it_name, :it_description, :it_startDate, :it_endDate, :it_status, :pr_id)";
-
+                "(it_id, it_name, it_description, it_startDate, it_endDate, it_status, pr_id) VALUES (0,:it_name, :it_description, :it_startDate, :it_endDate, :it_status, :pr_id)";
 
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("it_name", iter.getIt_name());
@@ -40,38 +38,38 @@ public class IterationDaoImpl implements IterationDao {
         String sql = "SELECT * FROM iterations";
 
         List<Iterations> iter =
-                (List<Iterations>) getSjt().query(sql, new IterationMapper());
+                getSjt().query(sql,
+                        ParameterizedBeanPropertyRowMapper.newInstance(Iterations.class));
 
         return iter;
     }
 
-    public List<Iterations> findIter(int pr_id){
-        String sql = "SELECT * FROM iterations where pr_id=:pr_id";
+    public List<Iterations> findIter(int n){
+        String sql = "SELECT * FROM iterations where pr_id=?";
 
         List<Iterations> iter =
-                (List<Iterations>) getSjt().query(sql, new IterationMapper());
+                getSjt().query(sql,
+                        ParameterizedBeanPropertyRowMapper.newInstance(Iterations.class),n);
 
         return iter;
     }
 
-    public Iterations findThisIter(int it_id) {
-        String sql = "SELECT * FROM iterations where it_id=:it_id";
+    public List findThisIter(int n) {
+        String sql = "SELECT * FROM iterations where it_id=?";
 
+        List<Iterations> iter =
+                getSjt().query(sql,
+                        ParameterizedBeanPropertyRowMapper.newInstance(Iterations.class),n);
 
-        SqlParameterSource namedParameters = new MapSqlParameterSource("it_id", Integer.valueOf(it_id));
-        Iterations iteration = (Iterations) getSjt().queryForObject(sql, namedParameters, new IterationMapper());
-        return iteration;
-
-
+        return iter;
     }
 
-    public void del(int it_id) {
+    public void del(int list) {
 
-        String sql = "Delete  FROM iterations where it_id=:it_id";
-        String sql1 = "Delete  FROM tasks where it_id=:it_id";
+        String sql = "Delete  FROM iterations where it_id=?";
+        String sql1 = "Delete  FROM tasks where it_id=?";
 
-        SqlParameterSource namedParameters = new MapSqlParameterSource("it_id", Integer.valueOf(it_id));
-        getSjt().update(sql, namedParameters);
-        getSjt().update(sql1, namedParameters);
+        getSjt().update(sql,list);
+        getSjt().update(sql1,list);
     }
 }

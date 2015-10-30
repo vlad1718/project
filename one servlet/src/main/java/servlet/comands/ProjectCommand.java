@@ -13,6 +13,11 @@ import java.io.IOException;
  * Created by User on 25.10.2015.
  */
 public class ProjectCommand implements Command {
+    public static final String LIST = "list";
+    public static final String FIRST_JSP = "/first.jsp";
+    public static final String ADD = "add";
+    public static final String PROJECT = "project";
+    public static final String ITERATIONS = "/iterations";
     private ProjectDao p;
 
 
@@ -23,46 +28,16 @@ public class ProjectCommand implements Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String page = null;
         HttpSession session = request.getSession(true);
-        request.setAttribute("list", p.findAll());
-        page = "/first.jsp";
-        String st = request.getParameter("add");
+        request.setAttribute(LIST, p.findAll());
+        page = FIRST_JSP;
+        String st = request.getParameter(ADD);
 
         if(st!=null) {
 
-            session.setAttribute("project", (Integer.parseInt(st)));
-            page ="/iterations";
-        }
-      /*  if (path.contains("/projects.action")){
-            page = "/controller?command=iterations";
-        }
-        if (path.contains("/projects/add.action")){
-            page = "/insert.jsp";
-        }
-        if(path.contains("/projects/insert.action")){
-            String act = request.getParameter("act");
-            if(act!=null){
-                String name=request.getParameter("NameProject");
-                if(name!=null) {
-
-                    String startDate = request.getParameter("DateBegin");
-                    String completeDate = request.getParameter("DateComplete");
-                    Date ps = null;
-                    Date ds = null;
-                    try {
-                        ps = sdf.parse(startDate);
-                        ds = sdf.parse(completeDate);
-                    } catch (ParseException e) {
-
-                    }
-                    Projects pr = new Projects(0, name, ps, ds);
-                        if(act.equals("Ok")) {
-                            p.insert(pr);
-                        }
-                }
+            session.setAttribute(PROJECT, (Integer.parseInt(st)));
+            page = ITERATIONS;
         }
 
-            page = "/controller?command=projects";
-             }*/
         return page;
     }
 }

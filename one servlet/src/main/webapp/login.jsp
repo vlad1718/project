@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
-  User: User
+  User: vl_gr
   Date: 24.10.2015
   Time: 19:33
   To change this template use File | Settings | File Templates.
@@ -17,14 +17,19 @@
 </head>
 <body>
 <hr/>
-<form name="loginForm" method="POST" action ="login" class="form-horizontal">
+<%
+  String error=(String)request.getAttribute("error");
+  if(error!=null)
+    out.println("<font color=red size=4px>"+error+"</font>");
+%>
+<form name="loginForm" method="POST" action ="/login" class="form-horizontal">
 
 
 <div class="parent">
 
   <div class="form-group" >
 
-    <label for="login" class="col-sm-2 control-label">login</label>
+    <label for="login" class="col-sm-2 control-label">Login</label>
     <div class="col-sm-4">
 
       <input type="text" class="form-control" id="login" name="login" onkeyup="checkCapsWarning(event)" onfocus="checkCapsWarning(event)" onblur="removeCapsWarning()" placeholder="Логин"/>
@@ -43,17 +48,16 @@
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-success">Enter</button>
-      <p><a href="RegistrateUser.jsp">Registration</a></p>
+      <p><a href="/RegistrateUser.jsp">Registration</a></p>
     </div>
 
 </div>
     </div>
-
-
-
-
 </form>
+
 <div style="display:none;color:red" id="capsIndicator" >нажат CapsLock!</div>
 </div>
+
+
 </body>
 </html>

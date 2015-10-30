@@ -17,6 +17,15 @@ import java.util.Date;
  * Created by User on 28.10.2015.
  */
 public class AddIterationCommand implements Command {
+    public static final String DESCRIPTION = "Description";
+    public static final String START_DATE = "StartDate";
+    public static final String END_DATE = "endDate";
+    public static final String STATUS = "status";
+    public static final String PROJECT = "project";
+    public static final String OK = "Ok";
+    public static final String ITERATIONS = "/iterations";
+    public static final String NAME_ITERATION = "NameIteration";
+    public static final String ACT = "act";
     private IterationDao it;
     public void setIt(IterationDao it) {
         this.it = it;
@@ -26,16 +35,16 @@ public class AddIterationCommand implements Command {
         HttpSession session = request.getSession(true);
         String page = "/newIter.jsp";
 
-        String act = request.getParameter("act");
+        String act = request.getParameter(ACT);
         if (act != null) {
-            String name = request.getParameter("NameIteration");
+            String name = request.getParameter(NAME_ITERATION);
             if (name != null) {
 
-                String desc = request.getParameter("Description");
-                String startDate = request.getParameter("StartDate");
-                String completeDate = request.getParameter("endDate");
-                String status = request.getParameter("status");
-                int pr_id = (Integer) session.getAttribute("project");
+                String desc = request.getParameter(DESCRIPTION);
+                String startDate = request.getParameter(START_DATE);
+                String completeDate = request.getParameter(END_DATE);
+                String status = request.getParameter(STATUS);
+                int pr_id = (Integer) session.getAttribute(PROJECT);
 
                 Date ps = null;
                 Date ds = null;
@@ -45,13 +54,13 @@ public class AddIterationCommand implements Command {
                 } catch (ParseException e) {
 
                 }
-                Iterations pr = new Iterations(0, name, desc, ps, ds, status, pr_id);
-                if (act.equals("Ok")) {
+                Iterations pr = new Iterations(name, desc, ps, ds, status, pr_id);
+                if (act.equals(OK)) {
                     it.insert(pr);
                 }
             }
 
-            page="/iterations";
+            page= ITERATIONS;
         }
         return page;
     }

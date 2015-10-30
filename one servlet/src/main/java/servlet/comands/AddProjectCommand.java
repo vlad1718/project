@@ -22,6 +22,8 @@ public class AddProjectCommand implements Command {
     public static final String NAME_PROJECT = "NameProject";
     public static final String DATE_BEGIN = "DateBegin";
     public static final String DATE_COMPLETE = "DateComplete";
+    public static final String PROJECTS = "/projects";
+    public static final String OK = "Ok";
     private ProjectDao p;
 
 
@@ -47,12 +49,12 @@ public class AddProjectCommand implements Command {
                 } catch (ParseException e) {
 
                 }
-                Projects pr = new Projects(0, name, ps, ds);
-                if (act.equals("Ok")) {
+                Projects pr = new Projects(name, ps, ds);
+                if (act.equals(OK)) {
                     p.insert(pr);
                 }
             }
-            page = "/projects";
+            page = PROJECTS;
 
         }
         return page;

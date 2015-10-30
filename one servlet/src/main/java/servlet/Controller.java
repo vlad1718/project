@@ -26,10 +26,11 @@ public class Controller extends HttpServlet  {
     public Controller(){
         super();
     }
+
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
         ApplicationContext cont = new ClassPathXmlApplicationContext(MODULE_XML);
-        rq = (RequestHelp) cont.getBean(MAIN);
+         rq = (RequestHelp) cont.getBean(MAIN);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -50,15 +51,9 @@ public class Controller extends HttpServlet  {
         if (session.getAttribute(LOGIN).equals(true) || command instanceof LoginCommand)
         {
             page = command.execute(request, response);
-
-            if (!page.contains("?")) {
                 RequestDispatcher dispatcher =
                         getServletContext().getRequestDispatcher(page);
                 dispatcher.forward(request, response);
-            } else {
-//                request.getServletContext().getContextPath();
-                response.sendRedirect(request.getRequestURI()+"/"+page);
-            }
         }
         else response.sendRedirect(LOGIN_JSP);
     }

@@ -10,10 +10,7 @@ import java.util.Map;
  * Created by User on 24.10.2015.
  */
 public class RequestHelp {
-    public RequestHelp() {
-    }
-
-    public static Map<String, Command> commands =
+    public  Map<String, Command> commands =
             new HashMap<String, Command>();
     public RequestHelp(Map map) {
            this.commands = (Map<String, Command>) map;

@@ -17,8 +17,8 @@ public class Iterations {
     public Iterations() {
     }
 
-    public Iterations(int it_id, String it_name, String it_description, Date it_startDate, Date it_endDate, String it_status, int pr_id) {
-        this.it_id = it_id;
+    public Iterations(String it_name, String it_description, Date it_startDate, Date it_endDate, String it_status, int pr_id) {
+
         this.it_name = it_name;
         this.it_description = it_description;
         this.it_startDate = it_startDate;

@@ -5,6 +5,8 @@ import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by User on 29.10.2015.
@@ -18,14 +20,22 @@ public class IterationMapper implements RowMapper {
     public static final String STATUS = "it_status";
     public static final String ID = "pr_id";
 
-    public Iterations mapRow(ResultSet rs, int rowNum) throws SQLException {
-        Iterations iter = new Iterations();
-        iter.setIt_name(rs.getString(NAME));
-        iter.setIt_description(rs.getString(DESCRIPTION));
-        iter.setIt_startDate(rs.getDate(START_DATE));
-        iter.setIt_endDate(rs.getDate(END_DATE));
-        iter.setIt_status(rs.getString(STATUS));
-        iter.setPr_id(rs.getInt(ID));
-        return iter;
+    public List mapRow(ResultSet rs, int rowNum) throws SQLException {
+
+        List<Iterations> it =new ArrayList();
+        while(rs.next()) {
+            Iterations iter = new Iterations();
+
+            iter.setIt_name(rs.getString(NAME));
+            iter.setIt_description(rs.getString(DESCRIPTION));
+            iter.setIt_startDate(rs.getDate(START_DATE));
+            iter.setIt_endDate(rs.getDate(END_DATE));
+            iter.setIt_status(rs.getString(STATUS));
+            iter.setPr_id(rs.getInt(ID));
+            it.add(iter);
+        }
+            return it;
+
+
     }
 }

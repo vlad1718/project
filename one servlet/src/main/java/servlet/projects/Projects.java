@@ -14,8 +14,7 @@ public class Projects {
     public Projects(){
 
 }
-    public Projects(int idProject, String projectName, Date startDate, Date completeDate) {
-        this.idProject = idProject;
+    public Projects(String projectName, Date startDate, Date completeDate) {
         this.projectName = projectName;
         this.startDate = startDate;
         this.completeDate = completeDate;

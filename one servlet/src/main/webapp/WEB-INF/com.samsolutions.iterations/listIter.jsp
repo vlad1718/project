@@ -16,9 +16,7 @@
   <script src="<c:url value="/resources/javascript/bootstrap.js" />"></script>
 </head>
 <body>
-<form name="IterationForm" method="POST" action ="/iteration/view">
-
-
+<form action="/serv/view">
   <%
 
     for (Iterations iter : (List<Iterations>) request.getAttribute("list")) {
@@ -31,11 +29,10 @@
 
   %>
   </form>
-<form name="IterationForm" method="POST" action ="projects">
-
+<form action = "/act/first">
   <button class="btn btn-danger" type="sumbit">Cancel</button>
 </form>
-<form name="IterationForm" method="POST" action ="/iterations/add">
+<form action ="/serv/newIter">
   <button class="btn btn-primary" type="sumbmit">add iter</button>
 </form>
 </body>

@@ -15,7 +15,7 @@
     <title></title>
 </head>
 <body>
-<form name="RegisterForm" method="POST" action ="registration" class="form-horizontal">
+<form name="RegisterForm" method="POST" action ="/registration" class="form-horizontal">
 
   <div class="parent">
 

@@ -17,8 +17,7 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-<form name="IterationForm" method="POST" action ="/iteration/view">
-
+<form action="/serv/view">
 <table class="table table-striped">
   <thead>
   <tr>
@@ -51,7 +50,6 @@
   %>
   </tbody>
 </table>
-
   <div class="container">
 
 
@@ -81,13 +79,11 @@
 
   </div>
 </form>
-  <form action="/iterations">
-
+  <form action="/serv/listIter">
 <button class="btn btn-default" type="submit">Cancel</button>
 </form>
 
-<form name="TaskForm" method="POST" action ="/tasks">
-
+<form action="/tasks/viewTasks">
   <button class="btn btn-default" type="submit">view tasks</button>
 </form>
 </body>

@@ -13,6 +13,11 @@ import java.io.IOException;
  * Created by User on 24.10.2015.
  */
 public class LoginCommand implements Command {
+    public static final String LOGIN = "login";
+    public static final String PASSWORD = "password";
+    public static final String REGISTRATION = "registration";
+    public static final String PROJECTS = "/projects";
+    public static final String LOGIN_JSP = "/login.jsp";
     private UserDao user;
 
     public void setUser(UserDao user) {
@@ -21,17 +26,19 @@ public class LoginCommand implements Command {
 
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String page = null;
-        String path = request.getRequestURI();
         HttpSession session = request.getSession();
-        String login = request.getParameter("login");
-        String pass = request.getParameter("password");
-
-        if (user.search(login,pass)!=null) {
-            session.setAttribute("login",true);
-            page = "/projects";
+        String login = request.getParameter(LOGIN);
+        String pass = request.getParameter(PASSWORD);
+        String command = request.getParameter(REGISTRATION);
+        if (user.search(login,pass).size()!=0) {
+            session.setAttribute(LOGIN,true);
+            page = PROJECTS;
 
         }
-        else page ="/login.jsp";
+        else {
+            page = LOGIN_JSP;
+            request.setAttribute("error","Invalid login or password");
+        }
 
 
         return page;

@@ -11,6 +11,6 @@ public interface IterationDao {
     void insert(Iterations iter);
     List<Iterations> findIter(int n);
     List<Iterations> findAll();
-    Iterations findThisIter(int n);
+    List findThisIter(int n);
     void del(int list);
 }
