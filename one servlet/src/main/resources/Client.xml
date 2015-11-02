@@ -3,6 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-init-method="migrate">
+
     <bean id="main" class="servlet.RequestHelp">
         <constructor-arg>
             <map>
@@ -25,7 +26,10 @@
         <property name="ds" ref="SimpleJdbc"></property>
 
      </bean>
-    <bean id="UserValid" class="servlet.validator.UserValidator"></bean>
+    <bean id="UserValid" class="servlet.validator.UserValidator">
+        <property name="user" ref="UserDaoImpl"></property>
+    </bean>
+
 <bean id="ViewIter" class="servlet.comands.ViewIterationCommand">
     <property name="it" ref="Iter"></property>
 </bean>
@@ -49,10 +53,11 @@
 
 </bean>
 <bean id="login" class="servlet.comands.LoginCommand" >
-    <property name="user" ref="UserDaoImpl"></property>
+
     <property name="userValidator" ref="UserValid"></property>
 
 </bean>
+
     <bean id="project" class="servlet.comands.ProjectCommand">
         <property name="p" ref="ProjectDaoImpl"></property>
     </bean>

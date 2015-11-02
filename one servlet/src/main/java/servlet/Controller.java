@@ -31,7 +31,9 @@ public class Controller extends HttpServlet  {
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
         ApplicationContext cont = new ClassPathXmlApplicationContext(MODULE_XML);
-         rq = (RequestHelp) cont.getBean(MAIN);
+        rq = (RequestHelp) cont.getBean(MAIN);
+
+
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

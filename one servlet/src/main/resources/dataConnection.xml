@@ -10,9 +10,6 @@
 
     <context:property-placeholder location="classpath:configure.properties"/>
 
-    <bean id="ResourceBinding" class="org.springframework.validation.BindingResult" abstract="true">
-
-    </bean>
     <bean id="DataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 

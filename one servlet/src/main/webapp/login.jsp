@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="s" uri="/struts-tags" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: vl_gr
@@ -18,12 +18,13 @@
 </head>
 <body>
 <hr/>
+<p align = "center">
 <%
   String error=(String)request.getAttribute("error");
   if(error!=null)
-    out.println("<font color=red size=4px>"+error+"</font>");
+    out.println("<font color=red size=4px >"+error+"</font>");
 %>
-
+</p>
 <div class="container">
   <div class="col-md-3 col-centered ">
 <form name="loginForm" method="POST"  action ="/login" class="form-horizontal" >
