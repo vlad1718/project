@@ -1,8 +1,8 @@
 package servlet.comands;
 
 import servlet.Command;
+import servlet.iterations.Iteration;
 import servlet.iterations.IterationDao;
-import servlet.iterations.Iterations;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -54,7 +54,7 @@ public class AddIterationCommand implements Command {
                 } catch (ParseException e) {
 
                 }
-                Iterations pr = new Iterations(name, desc, ps, ds, status, pr_id);
+                Iteration pr = new Iteration(name, desc, ps, ds, status, pr_id);
                 if (act.equals(OK)) {
                     it.insert(pr);
                 }

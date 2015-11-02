@@ -2,7 +2,7 @@ package servlet.comands;
 
 import servlet.Command;
 import servlet.users.UserDao;
-import servlet.users.Users;
+import servlet.users.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -35,7 +35,7 @@ public class RegistrationCommand implements Command {
         if(username!=null){
             String email = request.getParameter(EMAIL);
             String password = request.getParameter(PASSWORD);
-            Users us = new Users(username,email,password);
+            User us = new User(username,email,password);
             user.insert(us);
             page = LOGIN_JSP;
         }

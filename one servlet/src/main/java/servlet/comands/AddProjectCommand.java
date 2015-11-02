@@ -2,7 +2,7 @@ package servlet.comands;
 
 import servlet.Command;
 import servlet.projects.ProjectDao;
-import servlet.projects.Projects;
+import servlet.projects.Project;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -49,7 +49,7 @@ public class AddProjectCommand implements Command {
                 } catch (ParseException e) {
 
                 }
-                Projects pr = new Projects(name, ps, ds);
+                Project pr = new Project(name, ps, ds);
                 if (act.equals(OK)) {
                     p.insert(pr);
                 }

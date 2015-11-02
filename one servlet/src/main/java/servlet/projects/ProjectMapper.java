@@ -15,8 +15,8 @@ public class ProjectMapper implements RowMapper {
     public static final String COMPLETE_DATE = "completeDate";
     public static final String ID = "idProject";
 
-    public Projects mapRow(ResultSet resultSet, int i) throws SQLException {
-        Projects project = new Projects();
+    public Project mapRow(ResultSet resultSet, int i) throws SQLException {
+        Project project = new Project();
         project.setIdProject(resultSet.getInt(ID));
         project.setProjectName(resultSet.getString(NAME));
         project.setStartDate(resultSet.getDate(DATE));

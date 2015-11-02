@@ -22,9 +22,9 @@ public class IterationMapper implements RowMapper {
 
     public List mapRow(ResultSet rs, int rowNum) throws SQLException {
 
-        List<Iterations> it =new ArrayList();
+        List<Iteration> it =new ArrayList();
         while(rs.next()) {
-            Iterations iter = new Iterations();
+            Iteration iter = new Iteration();
 
             iter.setIt_name(rs.getString(NAME));
             iter.setIt_description(rs.getString(DESCRIPTION));

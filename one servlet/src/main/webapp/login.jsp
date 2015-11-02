@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: vl_gr
@@ -8,10 +9,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
     <title></title>
+    <head>
   <link href="<c:url value="/resources/styles/bootstrap.css" />" rel="stylesheet">
-  <link href="<c:url value="/resources/styles/center.css" />" rel="stylesheet">
+    <link href="resources/styles/center.css" rel="stylesheet">
   <script src="<c:url value="/resources/javascript/bootstrap.js" />"></script>
   <script src="resources/javascript/capsLock.js"></script>
 </head>
@@ -22,42 +23,39 @@
   if(error!=null)
     out.println("<font color=red size=4px>"+error+"</font>");
 %>
-<form name="loginForm" method="POST" action ="/login" class="form-horizontal">
 
+<div class="container">
+  <div class="col-md-3 col-centered ">
+<form name="loginForm" method="POST"  action ="/login" class="form-horizontal" >
 
-<div class="parent">
 
   <div class="form-group" >
 
-    <label for="login" class="col-sm-2 control-label">Login</label>
-    <div class="col-sm-4">
+    <label for="login" class= control-label"  >Login</label>
 
-      <input type="text" class="form-control" id="login" name="login" onkeyup="checkCapsWarning(event)" onfocus="checkCapsWarning(event)" onblur="removeCapsWarning()" placeholder="Логин"/>
+      <input type="text" class="form-control" path="login" id="login" name="login" onkeyup="checkCapsWarning(event)" onfocus="checkCapsWarning(event)" onblur="removeCapsWarning()" placeholder="Логин"/>
 
 
     </div>
-  </div>
-
   <div class="form-group">
-    <label for="password" class="col-sm-2 control-label">Password</label>
-    <div class="col-sm-4">
-      <input type="password" class="form-control" id="password"name="password" onkeyup="checkCapsWarning(event)" onfocus="checkCapsWarning(event)" onblur="removeCapsWarning()" placeholder="Пароль">
+    <label for="password" class="control-label">Password</label>
+      <input type="password" class="form-control" path="password" id="password"name="password" onkeyup="checkCapsWarning(event)" onfocus="checkCapsWarning(event)" onblur="removeCapsWarning()" placeholder="Пароль">
     </div>
 
-</div>
   <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-success">Enter</button>
-      <p><a href="/RegistrateUser.jsp">Registration</a></p>
-    </div>
-
 </div>
-    </div>
+
+
 </form>
 
 <div style="display:none;color:red" id="capsIndicator" >нажат CapsLock!</div>
+<form action="/registration" class="form-horizontal"  form role="form">
+   <div id="form-group">
+  <button type="submit" class="btn btn-default">Registration</button>
+    </div>
+</form>
 </div>
-
-
+</div>
 </body>
 </html>

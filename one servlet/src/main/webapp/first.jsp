@@ -1,4 +1,5 @@
-<%@ page import="servlet.projects.Projects" %>
+<%@ page import="servlet.projects.Project" %>
+
 <%@ page import="java.util.List" %>
 <%--
   Created by IntelliJ IDEA.
@@ -33,7 +34,7 @@
         <tr>
           <%
 
-            for (Projects pr : (List<Projects>) request.getAttribute("list")) {
+            for (Project pr : (List<Project>) request.getAttribute("list")) {
           %>
       <div class ="btn-group">
          <br> <button class="btn btn-default" type="text"  name="add" value=<%=pr.getIdProject()%>><%=pr.getProjectName()%></button></br>

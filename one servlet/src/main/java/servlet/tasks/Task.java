@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by User on 22.10.2015.
  */
-public class Tasks {
+public class Task {
     private int t_id;
 
     public int getT_id() {

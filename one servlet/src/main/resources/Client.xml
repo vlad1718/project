@@ -20,10 +20,12 @@
 
 
     </bean>
+
     <bean id="ProjectDaoImpl"  class="servlet.projects.ProjectDaoImpl">
         <property name="ds" ref="SimpleJdbc"></property>
 
      </bean>
+    <bean id="UserValid" class="servlet.validator.UserValidator"></bean>
 <bean id="ViewIter" class="servlet.comands.ViewIterationCommand">
     <property name="it" ref="Iter"></property>
 </bean>
@@ -48,7 +50,7 @@
 </bean>
 <bean id="login" class="servlet.comands.LoginCommand" >
     <property name="user" ref="UserDaoImpl"></property>
-
+    <property name="userValidator" ref="UserValid"></property>
 
 </bean>
     <bean id="project" class="servlet.comands.ProjectCommand">

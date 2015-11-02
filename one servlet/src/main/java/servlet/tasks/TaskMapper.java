@@ -16,8 +16,8 @@ public class TaskMapper implements  RowMapper{
     public static final String HOURS = "t_estimatedHours";
     public static final String ID = "it_id";
 
-    public Tasks mapRow(ResultSet resultSet, int i) throws SQLException {
-        Tasks task = new Tasks();
+    public Task mapRow(ResultSet resultSet, int i) throws SQLException {
+        Task task = new Task();
         task.setT_kategory(resultSet.getString(KATEGORY));
         task.setT_description(resultSet.getString(DESCRIPTION));
         task.setT_estimatedHours(resultSet.getDate(HOURS));

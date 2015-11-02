@@ -3,15 +3,15 @@ package servlet.users;
 /**
  * Created by User on 24.10.2015.
  */
-public class Users {
+public class User {
     private long  u_id;
     private String u_username;
     private String u_email;
 
-    public Users(){
+    public User(){
 
     }
-    public Users(String u_username, String u_email, String u_password) {
+    public User(String u_username, String u_email, String u_password) {
         this.u_username = u_username;
         this.u_email = u_email;
         this.u_password = u_password;

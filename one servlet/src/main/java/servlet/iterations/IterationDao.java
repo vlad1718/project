@@ -8,9 +8,9 @@ import java.util.List;
  */
 public interface IterationDao {
 
-    void insert(Iterations iter);
-    List<Iterations> findIter(int n);
-    List<Iterations> findAll();
+    void insert(Iteration iter);
+    List<Iteration> findIter(int n);
+    List<Iteration> findAll();
     List findThisIter(int n);
     void del(int list);
 }

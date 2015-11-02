@@ -1,7 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<%@ page import="servlet.tasks.Task" %>
+
 <%@ page import="java.util.List" %>
-<%@ page import="servlet.tasks.Tasks" %>
 <%--
   Created by IntelliJ IDEA.
   User: User
@@ -19,8 +20,8 @@
 <body>
 <ol>
   <b>Not Started tasks</b>
-  <% if((List<Tasks>) request.getAttribute("not started")!=null){
-    for (Tasks task : (List<Tasks>) request.getAttribute("not started")) {
+  <% if((List<Task>) request.getAttribute("not started")!=null){
+    for (Task task : (List<Task>) request.getAttribute("not started")) {
 
   %>
   <li>  <%=task.getT_description()%></li>
@@ -31,8 +32,8 @@
 <ol>
   <b>Started tasks</b>
   <%
-    if((List<Tasks>) request.getAttribute("started")!=null){
-    for (Tasks task : (List<Tasks>) request.getAttribute("started")) {
+    if((List<Task>) request.getAttribute("started")!=null){
+    for (Task task : (List<Task>) request.getAttribute("started")) {
 
   %>
 <li>  <%=task.getT_description()%></li>
@@ -43,8 +44,8 @@
 <ol>
   <b>Completed tasks</b>
   <%
-    if((List<Tasks>) request.getAttribute("completed")!=null){
-    for (Tasks task : (List<Tasks>) request.getAttribute("completed")) {
+    if((List<Task>) request.getAttribute("completed")!=null){
+    for (Task task : (List<Task>) request.getAttribute("completed")) {
   %>
   <li>  <%=task.getT_description()%></li>
   <%

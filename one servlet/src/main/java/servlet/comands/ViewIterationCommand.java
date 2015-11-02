@@ -33,12 +33,12 @@ public class ViewIterationCommand implements Command {
 
             session.setAttribute(IT, Integer.parseInt(st));
         }
-        request.setAttribute(LIST, it.findThisIter((Integer) session.getAttribute("it")));
+        request.setAttribute(LIST, it.findThisIter((Integer) session.getAttribute(IT)));
 
         String str = request.getParameter(DEL);
         if (str != null) {
 
-            it.del((Integer) session.getAttribute("it"));
+            it.del((Integer) session.getAttribute(IT));
             page = ITERATIONS;
         } else page = VIEW_JSP;
 

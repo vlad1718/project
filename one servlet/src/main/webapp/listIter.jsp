@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="servlet.iterations.Iterations" %>
+<%@ page import="servlet.iterations.Iteration" %>
 <%@ page import="java.util.List" %>
 <%--
   Created by IntelliJ IDEA.
@@ -21,7 +21,7 @@
 
   <%
 
-    for (Iterations iter : (List<Iterations>) request.getAttribute("list")) {
+    for (Iteration iter : (List<Iteration>) request.getAttribute("list")) {
   %>
   <div class="btn-group">
   <br> <button class="btn btn-default" type="text" name="iter" value=<%=iter.getIt_id()%>><%=iter.getIt_name()%></button></br>

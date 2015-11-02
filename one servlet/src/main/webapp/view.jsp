@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="servlet.iterations.Iterations" %>
+<%@ page import="servlet.iterations.Iteration" %>
 <%@ page import="java.util.List" %>
 <%--
   Created by IntelliJ IDEA.
@@ -35,7 +35,7 @@
   <tr>
     <%
 
-      for (Iterations it : (List<Iterations>) request.getAttribute("list")) {
+      for (Iteration it : (List<Iteration>) request.getAttribute("list")) {
     %>
     <td><%=it.getIt_name()%></td>
     <td><%=it.getIt_description()%></td>

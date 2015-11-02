@@ -5,16 +5,16 @@ import java.util.Date;
 /**
  * Created by User on 18.10.2015.
  */
-public class Projects {
+public class Project {
     private int idProject;
     private String projectName;
     private Date startDate;
     private Date completeDate;
 
-    public Projects(){
+    public Project(){
 
 }
-    public Projects(String projectName, Date startDate, Date completeDate) {
+    public Project(String projectName, Date startDate, Date completeDate) {
         this.projectName = projectName;
         this.startDate = startDate;
         this.completeDate = completeDate;

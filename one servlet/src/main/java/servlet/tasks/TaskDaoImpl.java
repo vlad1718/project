@@ -19,13 +19,13 @@ public class TaskDaoImpl implements TaskDao {
     }
 
 
-    public List<Tasks> findTasks(int n){
+    public List<Task> findTasks(int n){
         String sql = "SELECT * FROM tasks where it_id=?";
 
 
-        List<Tasks> task =
+        List<Task> task =
                 getSjt().query(sql,
-                        ParameterizedBeanPropertyRowMapper.newInstance(Tasks.class),n);
+                        ParameterizedBeanPropertyRowMapper.newInstance(Task.class),n);
 
         return task;
     }

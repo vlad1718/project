@@ -2,7 +2,7 @@ package servlet.comands;
 
 import servlet.Command;
 import servlet.tasks.TaskDao;
-import servlet.tasks.Tasks;
+import servlet.tasks.Task;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -24,10 +24,10 @@ public class TaskCommand implements Command {
 
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(true);
-        ArrayList<Tasks> notSt = new ArrayList<Tasks>();
-        ArrayList <Tasks> st = new ArrayList<Tasks>();
-        ArrayList <Tasks> completed = new ArrayList<Tasks>();
-         for (Tasks tasks : (List<Tasks>) task.findTasks((Integer) session.getAttribute("it"))){
+        ArrayList<Task> notSt = new ArrayList<Task>();
+        ArrayList <Task> st = new ArrayList<Task>();
+        ArrayList <Task> completed = new ArrayList<Task>();
+         for (Task tasks : (List<Task>) task.findTasks((Integer) session.getAttribute("it"))){
             if (tasks.getT_kategory().equals("not started")){
                 notSt.add(tasks);
                 request.setAttribute("not started",notSt);

@@ -7,5 +7,5 @@ import java.util.List;
  */
 public interface UserDao {
      List search(String log, String pas);
-     void insert(Users user);
+     void insert(User user);
 }

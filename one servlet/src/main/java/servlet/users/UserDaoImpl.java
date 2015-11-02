@@ -23,13 +23,13 @@ public class UserDaoImpl implements UserDao {
 
     public List search(String log,String pas) {
         String sql = "select *from user where u_username=? and u_password=?";
-        List<Users> users =
+        List<User> users =
                 getSjt().query(sql,
-                        ParameterizedBeanPropertyRowMapper.newInstance(Users.class),log,pas);
+                        ParameterizedBeanPropertyRowMapper.newInstance(User.class),log,pas);
 
         return users;
     }
-    public void insert(Users user) {
+    public void insert(User user) {
 
         String sql = "INSERT INTO user " +
                 "(u_username, u_email,u_password) VALUES (:u_username, :u_email, :u_password)";

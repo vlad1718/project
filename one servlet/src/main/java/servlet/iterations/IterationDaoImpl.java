@@ -20,7 +20,7 @@ public class IterationDaoImpl implements IterationDao {
     }
 
     private SimpleJdbcTemplate sjt;
-    public void insert(Iterations iter) {
+    public void insert(Iteration iter) {
         String sql = "INSERT INTO iterations " +
                 "(it_id, it_name, it_description, it_startDate, it_endDate, it_status, pr_id) VALUES (0,:it_name, :it_description, :it_startDate, :it_endDate, :it_status, :pr_id)";
 
@@ -33,23 +33,23 @@ public class IterationDaoImpl implements IterationDao {
         parameters.put("pr_id", iter.getPr_id());
         getSjt().update(sql, parameters);
     }
-    public List<Iterations> findAll(){
+    public List<Iteration> findAll(){
 
         String sql = "SELECT * FROM iterations";
 
-        List<Iterations> iter =
+        List<Iteration> iter =
                 getSjt().query(sql,
-                        ParameterizedBeanPropertyRowMapper.newInstance(Iterations.class));
+                        ParameterizedBeanPropertyRowMapper.newInstance(Iteration.class));
 
         return iter;
     }
 
-    public List<Iterations> findIter(int n){
+    public List<Iteration> findIter(int n){
         String sql = "SELECT * FROM iterations where pr_id=?";
 
-        List<Iterations> iter =
+        List<Iteration> iter =
                 getSjt().query(sql,
-                        ParameterizedBeanPropertyRowMapper.newInstance(Iterations.class),n);
+                        ParameterizedBeanPropertyRowMapper.newInstance(Iteration.class),n);
 
         return iter;
     }
@@ -57,9 +57,9 @@ public class IterationDaoImpl implements IterationDao {
     public List findThisIter(int n) {
         String sql = "SELECT * FROM iterations where it_id=?";
 
-        List<Iterations> iter =
+        List<Iteration> iter =
                 getSjt().query(sql,
-                        ParameterizedBeanPropertyRowMapper.newInstance(Iterations.class),n);
+                        ParameterizedBeanPropertyRowMapper.newInstance(Iteration.class),n);
 
         return iter;
     }

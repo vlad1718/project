@@ -28,7 +28,7 @@ public class ProjectDaoImpl implements ProjectDao {
         this.sjt = ds;
     }
 
-    public void insert(Projects project) {
+    public void insert(Project project) {
 
         String sql = "INSERT INTO projects " +
                 "(idProject, projectName, startDate,completeDate) VALUES (0,:projectName, :startDate, :completeDate)";
@@ -40,13 +40,13 @@ public class ProjectDaoImpl implements ProjectDao {
         getSjt().update(sql, parameters);
     }
 
-    public List<Projects> findAll(){
+    public List<Project> findAll(){
 
         String sql = "SELECT * FROM projects";
 
-        List<Projects> projects =
+        List<Project> projects =
                 getSjt().query(sql,
-                        ParameterizedBeanPropertyRowMapper.newInstance(Projects.class));
+                        ParameterizedBeanPropertyRowMapper.newInstance(Project.class));
 
         return projects;
     }

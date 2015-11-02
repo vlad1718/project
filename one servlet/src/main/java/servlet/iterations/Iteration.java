@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by User on 19.10.2015.
  */
-public class Iterations {
+public class Iteration {
     private int it_id;
     private String it_name;
 
@@ -14,10 +14,10 @@ public class Iterations {
     private Date it_endDate;
     private String it_status;
 
-    public Iterations() {
+    public Iteration() {
     }
 
-    public Iterations(String it_name, String it_description, Date it_startDate, Date it_endDate, String it_status, int pr_id) {
+    public Iteration(String it_name, String it_description, Date it_startDate, Date it_endDate, String it_status, int pr_id) {
 
         this.it_name = it_name;
         this.it_description = it_description;

@@ -3,6 +3,7 @@ package servlet;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import servlet.comands.LoginCommand;
+import servlet.comands.RegistrationCommand;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -48,7 +49,7 @@ public class Controller extends HttpServlet  {
         Command command = rq.getCommand(request);
         HttpSession session = request.getSession(true);
         session.setAttribute(LOGIN, session.getAttribute(LOGIN) == null ? false : session.getAttribute(LOGIN));
-        if (session.getAttribute(LOGIN).equals(true) || command instanceof LoginCommand)
+        if (session.getAttribute(LOGIN).equals(true) || command instanceof RegistrationCommand || command instanceof LoginCommand)
         {
             page = command.execute(request, response);
                 RequestDispatcher dispatcher =
