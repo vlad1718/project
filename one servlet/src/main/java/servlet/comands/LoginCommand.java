@@ -3,13 +3,13 @@ package servlet.comands;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import servlet.Command;
-import servlet.exceptions.UserNotFoundException;
 import servlet.validator.UserValidator;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.bind.ValidationException;
 import java.io.IOException;
 
 
@@ -40,7 +40,7 @@ public class LoginCommand implements Command {
                 session.setAttribute(LOGIN,true);
                 page = PROJECTS;
             }
-            catch (UserNotFoundException e) {
+            catch (ValidationException e) {
                 logger.debug("you not input valid values");
                 request.setAttribute("error",e.getMessage());
                 page = LOGIN_JSP;

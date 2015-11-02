@@ -29,6 +29,11 @@
     <bean id="UserValid" class="servlet.validator.UserValidator">
         <property name="user" ref="UserDaoImpl"></property>
     </bean>
+    <bean id="RegisterValid" class="servlet.validator.RegistrationValidator">
+        <property name="userDao" ref="UserDaoImpl">
+
+        </property>
+    </bean>
 
 <bean id="ViewIter" class="servlet.comands.ViewIterationCommand">
     <property name="it" ref="Iter"></property>
@@ -68,7 +73,7 @@
         <property name="task" ref="Tasks"></property>
     </bean>
     <bean id ="registrate" class="servlet.comands.RegistrationCommand">
-        <property name="user" ref="UserDaoImpl"></property>
+        <property name="registrationValidator" ref="RegisterValid"></property>
     </bean>
     <bean id="addProject" class="servlet.comands.AddProjectCommand">
         <property name="p" ref="ProjectDaoImpl"></property>
