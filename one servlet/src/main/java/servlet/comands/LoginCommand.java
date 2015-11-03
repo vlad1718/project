@@ -21,6 +21,7 @@ public class LoginCommand implements Command {
     public static final String PASSWORD = "password";
     public static final String PROJECTS = "/projects";
     public static final String LOGIN_JSP = "/login.jsp";
+    public static final String ERROR = "error";
     private UserValidator userValidator;
     private static final Logger logger =
             LoggerFactory.getLogger(LoginCommand.class);
@@ -42,7 +43,7 @@ public class LoginCommand implements Command {
             }
             catch (ValidationException e) {
                 logger.debug("you not input valid values");
-                request.setAttribute("error",e.getMessage());
+                request.setAttribute(ERROR,e.getMessage());
                 page = LOGIN_JSP;
             }
 

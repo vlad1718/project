@@ -21,7 +21,9 @@
 
 
     </bean>
-
+    <bean id="ProjectAddValidator" class="servlet.validator.ProjectAddValidator">
+        <property name="projectDao" ref="ProjectDaoImpl"></property>
+    </bean>
     <bean id="ProjectDaoImpl"  class="servlet.projects.ProjectDaoImpl">
         <property name="ds" ref="SimpleJdbc"></property>
 
@@ -76,7 +78,7 @@
         <property name="registrationValidator" ref="RegisterValid"></property>
     </bean>
     <bean id="addProject" class="servlet.comands.AddProjectCommand">
-        <property name="p" ref="ProjectDaoImpl"></property>
+       <property name="projectAddValidator" ref="ProjectAddValidator"></property>
     </bean>
     <bean id="addIteration" class="servlet.comands.AddIterationCommand">
         <property name="it" ref="Iter"></property>
