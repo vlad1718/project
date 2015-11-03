@@ -2,6 +2,7 @@ package servlet.iterations;
 
 import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
+import servlet.DAO.IterationDao;
 
 import java.util.HashMap;
 import java.util.List;

@@ -1,7 +1,7 @@
 package servlet;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 import servlet.comands.LoginCommand;
 import servlet.comands.RegistrationCommand;
 
@@ -30,7 +30,8 @@ public class Controller extends HttpServlet  {
 
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
-        ApplicationContext cont = new ClassPathXmlApplicationContext(MODULE_XML);
+        ApplicationContext cont = WebApplicationContextUtils
+                .getRequiredWebApplicationContext(getServletContext());
         rq = (RequestHelp) cont.getBean(MAIN);
 
 

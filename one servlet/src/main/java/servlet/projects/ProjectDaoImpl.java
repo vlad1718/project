@@ -2,6 +2,7 @@ package servlet.projects;
 
 import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
+import servlet.DAO.ProjectDao;
 
 import java.util.HashMap;
 import java.util.List;

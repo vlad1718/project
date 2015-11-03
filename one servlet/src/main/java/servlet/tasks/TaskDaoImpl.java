@@ -2,6 +2,7 @@ package servlet.tasks;
 
 import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
+import servlet.DAO.TaskDao;
 
 import java.util.List;
 

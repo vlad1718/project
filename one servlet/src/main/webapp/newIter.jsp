@@ -14,34 +14,46 @@
   <script src="<c:url value="/resources/javascript/bootstrap.js" />"></script>
 </head>
 <body>
+<%
+  String error=(String)request.getAttribute("error");
+  if(error!=null)
+    out.println("<font color=red size=4px >"+error+"</font>");
+%>
+<div class="container">
+  <div class="col-md-3 col-centered ">
 <form name="IterationForm" method="POST" action ="add" role="form">
 
-  <div class = "container">
+
   <div class = "form-group">
     <label for="NameIteration">NameIteration</label>
     <input type ="text" class="form-control input-lg" id="NameIteration" name="NameIteration" placeholder="InputNameIteration">
   </div>
+
   <div class = "form-group">
     <label for="Description">Description</label>
     <input type ="text" class="form-control" id="Description" name="Description" placeholder="InputDescription">
   </div>
+
   <div class = "form-group">
     <label for="StartDate">StartDate</label>
-    <input type ="text" class="form-control" id="StartDate" name="StartDate" placeholder="StartDate">
+    <input type ="date" class="form-control" id="StartDate" name="StartDate" placeholder="StartDate">
   </div>
+
   <div class = "form-group">
     <label for="endDate">DateComplete</label>
-    <input type ="text" class="form-control " id="endDate" name="endDate" placeholder="endDate">
+    <input type ="date" class="form-control " id="endDate" name="endDate" placeholder="endDate">
   </div>
+
   <div class = "form-group">
     <label for="status">Status</label>
     <input type ="text" class="form-control" id="status" name="status" placeholder="status">
   </div>
-</div>
+
   <br> <input type="submit" name="act" value="Ok"/></br>
   <br> <input type="submit" name="act" value="cancel"></br>
 
 </form>
-
+</div>
+</div>
 </body>
 </html>

@@ -12,11 +12,18 @@
     <title></title>
     <head>
   <link href="<c:url value="/resources/styles/bootstrap.css" />" rel="stylesheet">
-    <link href="resources/styles/center.css" rel="stylesheet">
+    <link href="/resources/styles/center.css" rel="stylesheet">
+
   <script src="<c:url value="/resources/javascript/bootstrap.js" />"></script>
   <script src="resources/javascript/capsLock.js"></script>
+
+      <style>
+        body {
+          background:url("resources/image/0.jpeg");
+        }
+      </style>
 </head>
-<body>
+<body >
 <hr/>
 <p align = "center">
 <%

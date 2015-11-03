@@ -81,7 +81,10 @@
        <property name="projectAddValidator" ref="ProjectAddValidator"></property>
     </bean>
     <bean id="addIteration" class="servlet.comands.AddIterationCommand">
-        <property name="it" ref="Iter"></property>
+        <property name="iterationAddValidator" ref="validationIteration"></property>
+    </bean>
+    <bean id ="validationIteration" class="servlet.validator.IterationAddValidator">
+        <property name="iterationDao" ref="Iter"></property>
     </bean>
 
 </beans>

@@ -1,7 +1,7 @@
 package servlet.comands;
 
 import servlet.Command;
-import servlet.iterations.IterationDao;
+import servlet.DAO.IterationDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;

@@ -17,7 +17,7 @@
   <script src="<c:url value="/resources/javascript/bootstrap.js" />"></script>
 
 </head>
-<body>
+<body >
 
 <form name="ProjectAdd" method="post" action="/projects/add">
 

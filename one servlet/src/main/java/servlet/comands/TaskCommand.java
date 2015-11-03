@@ -1,7 +1,7 @@
 package servlet.comands;
 
 import servlet.Command;
-import servlet.tasks.TaskDao;
+import servlet.DAO.TaskDao;
 import servlet.tasks.Task;
 
 import javax.servlet.ServletException;

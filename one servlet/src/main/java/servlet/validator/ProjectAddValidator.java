@@ -2,7 +2,7 @@ package servlet.validator;
 
 import servlet.exceptions.ValidationException;
 import servlet.projects.Project;
-import servlet.projects.ProjectDao;
+import servlet.DAO.ProjectDao;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * Created by User on 03.11.2015.
  */
-public class ProjectAddValidator {
+public class ProjectAddValidator extends ValidationCommons {
     private ProjectDao projectDao;
 
     public void setProjectDao(ProjectDao projectDao) {
@@ -28,15 +28,9 @@ public class ProjectAddValidator {
         } catch (ParseException e) {
 
         }
-
-        if(name.isEmpty()){
-           throw(new ValidationException("you input empty project name"));
-       }
-        else if(ps.getTime() > ds.getTime()){
-            throw (new ValidationException("complete date not to be early start date"));
-        }
-        else { Project pr = new Project(name, ps, ds);
+        super.validate(name, ps,ds);
+        Project pr = new Project(name, ps, ds);
             projectDao.insert(pr);
-        }
+
     }
 }
