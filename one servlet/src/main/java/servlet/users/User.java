@@ -4,52 +4,54 @@ package servlet.users;
  * Created by User on 24.10.2015.
  */
 public class User {
-    private long u_id;
-    private String u_username;
-    private String u_email;
+    private long id;
+    private String username;
+    private String email;
+    private String password;
 
     public User() {
 
     }
 
-    public User(String u_username, String u_email, String u_password) {
-        this.u_username = u_username;
-        this.u_email = u_email;
-        this.u_password = u_password;
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
     }
 
-    private String u_password;
-
-
-    public long getU_id() {
-        return u_id;
+    public long getId() {
+        return id;
     }
 
-    public void setU_id(long u_id) {
-        this.u_id = u_id;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public String getU_username() {
-        return u_username;
+    public String getUsername() {
+        return username;
     }
 
-    public void setU_username(String u_username) {
-        this.u_username = u_username;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getU_email() {
-        return u_email;
+    public String getEmail() {
+        return email;
     }
 
-    public void setU_email(String u_email) {
-        this.u_email = u_email;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getU_password() {
-        return u_password;
+    public String getPassword() {
+        return password;
     }
 
-    public void setU_password(String u_password) {
-        this.u_password = u_password;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
+
+
+
+

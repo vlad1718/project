@@ -1,19 +1,24 @@
 .col-centered{
     float: none;
     margin: 0 auto;
-    top: 50%; /* Отступ в процентах от верхнего края окна */
-    left: 50%; /* Отступ в процентах от левого края окна */
+    top: 50%;
+    left: 50%;
 
-    position: absolute; /* Абсолютное позиционирование блока */
-    margin-top: -225px; /* Отрицательный отступ от верхнего края страницы, должен равняться половине высоты блока со знаком минус */
+    position: absolute;
+    margin-top: -225px;
     margin-left: -225px;
 }
 .error {
     color: #ff0000;
     font-style: italic;
 }
-.fon{
-
-background-color: #b0c4de;
+body{
+ url("resources/image/0.jpeg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 
 }
+
+

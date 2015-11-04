@@ -25,7 +25,7 @@
     %>
     <div class="btn-group">
         <br>
-        <button class="btn btn-default" type="text" name="iter" value=<%=iter.getIt_id()%>><%=iter.getIt_name()%>
+        <button class="btn btn-default" type="text" name="iter" value=<%=iter.getId()%>><%=iter.getName()%>
         </button>
         </br>
     </div>

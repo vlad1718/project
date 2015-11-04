@@ -3,6 +3,7 @@ package servlet.users;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import servlet.DAO.UserDao;
 
 import java.util.HashMap;
 import java.util.List;
@@ -38,9 +39,9 @@ public class UserDaoImpl implements UserDao {
                 "(u_username, u_email,u_password) VALUES (:u_username, :u_email, :u_password)";
 
         Map<String, Object> parameters = new HashMap<String, Object>();
-        parameters.put("u_username", user.getU_username());
-        parameters.put("u_email", user.getU_email());
-        parameters.put("u_password", user.getU_password());
+        parameters.put("u_username", user.getUsername());
+        parameters.put("u_email",user.getEmail());
+        parameters.put("u_password", user.getPassword());
         getSjt().update(sql, parameters);
     }
 

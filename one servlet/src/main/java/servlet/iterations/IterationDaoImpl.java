@@ -29,12 +29,12 @@ public class IterationDaoImpl implements IterationDao {
                 "(it_id, it_name, it_description, it_startDate, it_endDate, it_status, pr_id) VALUES (0,:it_name, :it_description, :it_startDate, :it_endDate, :it_status, :pr_id)";
 
         Map<String, Object> parameters = new HashMap<String, Object>();
-        parameters.put("it_name", iter.getIt_name());
-        parameters.put("it_description", iter.getIt_description());
-        parameters.put("it_startDate", iter.getIt_startDate());
-        parameters.put("it_endDate", iter.getIt_endDate());
-        parameters.put("it_status", iter.getIt_status());
-        parameters.put("pr_id", iter.getPr_id());
+        parameters.put("it_name", iter.getName());
+        parameters.put("it_description", iter.getDescription());
+        parameters.put("it_startDate", iter.getStartDate());
+        parameters.put("it_endDate", iter.getEndDate());
+        parameters.put("it_status", iter.getStatus());
+        parameters.put("pr_id", iter.getProjectId());
         getSjt().update(sql, parameters);
     }
 

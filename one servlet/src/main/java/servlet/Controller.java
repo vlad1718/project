@@ -1,11 +1,7 @@
 package servlet;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-import servlet.comands.LoginCommand;
-import servlet.comands.RegistrationCommand;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -24,9 +20,10 @@ public class Controller extends HttpServlet {
     public static final String MAIN = "main";
     public static final String LOGIN = "login";
     public static final String LOGIN_JSP = "/login.jsp";
+    public static final String REGISTRATION = "/registration";
+
     private RequestHelp rq;
-    private static final Logger logger =
-            LoggerFactory.getLogger(LoginCommand.class);
+
     public Controller() {
         super();
     }
@@ -52,12 +49,12 @@ public class Controller extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String path = request.getRequestURI();
         String page = null;
         Command command = rq.getCommand(request);
-        logger.debug(command.toString());
-        HttpSession session = request.getSession(true);
+               HttpSession session = request.getSession(true);
         session.setAttribute(LOGIN, session.getAttribute(LOGIN) == null ? false : session.getAttribute(LOGIN));
-        if (session.getAttribute(LOGIN).equals(true) || command instanceof RegistrationCommand || command instanceof LoginCommand) {
+        if (session.getAttribute(LOGIN).equals(true) || path.contains(REGISTRATION) || path.contains(LOGIN)) {
             page = command.execute(request, response);
             RequestDispatcher dispatcher =
                     getServletContext().getRequestDispatcher(page);

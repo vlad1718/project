@@ -1,4 +1,6 @@
-package servlet.users;
+package servlet.DAO;
+
+import servlet.users.User;
 
 import java.util.List;
 

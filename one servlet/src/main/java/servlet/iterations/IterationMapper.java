@@ -23,17 +23,17 @@ public class IterationMapper implements RowMapper {
     public List mapRow(ResultSet rs, int rowNum) throws SQLException {
 
         List<Iteration> it = new ArrayList();
-        while (rs.next()) {
-            Iteration iter = new Iteration();
 
-            iter.setIt_name(rs.getString(NAME));
-            iter.setIt_description(rs.getString(DESCRIPTION));
-            iter.setIt_startDate(rs.getDate(START_DATE));
-            iter.setIt_endDate(rs.getDate(END_DATE));
-            iter.setIt_status(rs.getString(STATUS));
-            iter.setPr_id(rs.getInt(ID));
-            it.add(iter);
-        }
+        Iteration iter = new Iteration();
+
+        iter.setName(rs.getString(NAME));
+        iter.setDescription(rs.getString(DESCRIPTION));
+        iter.setStartDate(rs.getDate(START_DATE));
+        iter.setEndDate(rs.getDate(END_DATE));
+        iter.setStatus(rs.getString(STATUS));
+        iter.setProjectId(rs.getInt(ID));
+        it.add(iter);
+
         return it;
 
 

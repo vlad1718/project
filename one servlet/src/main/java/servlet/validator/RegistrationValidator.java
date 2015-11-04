@@ -1,7 +1,7 @@
 package servlet.validator;
 
 import servlet.users.User;
-import servlet.users.UserDao;
+import servlet.DAO.UserDao;
 
 import javax.xml.bind.ValidationException;
 

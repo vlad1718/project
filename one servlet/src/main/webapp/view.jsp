@@ -37,15 +37,15 @@
 
                 for (Iteration it : (List<Iteration>) request.getAttribute("list")) {
             %>
-            <td><%=it.getIt_name()%>
+            <td><%=it.getName()%>
             </td>
-            <td><%=it.getIt_description()%>
+            <td><%=it.getDescription()%>
             </td>
-            <td><%=it.getIt_startDate()%>
+            <td><%=it.getStartDate()%>
             </td>
-            <td><%=it.getIt_endDate()%>
+            <td><%=it.getEndDate()%>
             </td>
-            <td><%=it.getIt_status()%>
+            <td><%=it.getStatus()%>
             </td>
 
 

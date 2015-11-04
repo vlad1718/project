@@ -19,7 +19,12 @@
 
     <style>
         body {
-            background: url("resources/image/0.jpeg");
+            background: url("resources/image/0.jpeg") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+
         }
     </style>
 </head>

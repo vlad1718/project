@@ -2,7 +2,7 @@
 
 <configuration>
 
-       <property name="DEV_HOME" value="C:/Users/User/IdeaProjects/Spring/logs" />
+       <property name="DEV_HOME" value="${DEV_HOME}" />
 
        <appender name="FILE-AUDIT"
                  class="ch.qos.logback.core.rolling.RollingFileAppender">

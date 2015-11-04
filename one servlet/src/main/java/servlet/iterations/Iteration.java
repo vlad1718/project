@@ -6,84 +6,81 @@ import java.util.Date;
  * Created by User on 19.10.2015.
  */
 public class Iteration {
-    private int it_id;
-    private String it_name;
+    private long id;
+    private String name;
 
-    private String it_description;
-    private Date it_startDate;
-    private Date it_endDate;
-    private String it_status;
+    private String description;
+    private Date startDate;
+    private Date endDate;
+    private String status;
+
+    public int getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(int projectId) {
+        this.projectId = projectId;
+    }
+
+    private int projectId;
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public Iteration() {
+
     }
 
-    public Iteration(String it_name, String it_description, Date it_startDate, Date it_endDate, String it_status, int pr_id) {
-
-        this.it_name = it_name;
-        this.it_description = it_description;
-        this.it_startDate = it_startDate;
-        this.it_endDate = it_endDate;
-        this.it_status = it_status;
-        this.pr_id = pr_id;
-    }
-
-    public int getPr_id() {
-        return pr_id;
-    }
-
-    public void setPr_id(int pr_id) {
-        this.pr_id = pr_id;
-    }
-
-    private int pr_id;
-
-
-    public int getIt_id() {
-        return it_id;
-    }
-
-    public void setIt_id(int it_id) {
-        this.it_id = it_id;
-    }
-
-    public String getIt_name() {
-        return it_name;
-    }
-
-    public void setIt_name(String it_name) {
-        this.it_name = it_name;
-    }
-
-
-    public String getIt_description() {
-        return it_description;
-    }
-
-    public void setIt_description(String it_description) {
-        this.it_description = it_description;
-    }
-
-    public Date getIt_startDate() {
-        return it_startDate;
-    }
-
-    public void setIt_startDate(Date it_startDate) {
-        this.it_startDate = it_startDate;
-    }
-
-    public Date getIt_endDate() {
-        return it_endDate;
-    }
-
-    public void setIt_endDate(Date it_endDate) {
-        this.it_endDate = it_endDate;
-    }
-
-    public String getIt_status() {
-        return it_status;
-    }
-
-    public void setIt_status(String it_status) {
-        this.it_status = it_status;
+    public Iteration(String name, String description, Date startDate, Date endDate, String status, int projectId) {
+        this.name = name;
+        this.description = description;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.status = status;
+        this.projectId = projectId;
     }
 }

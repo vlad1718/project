@@ -6,53 +6,53 @@ import java.util.Date;
  * Created by User on 22.10.2015.
  */
 public class Task {
-    private int t_id;
+    private long id;
 
-    public int getT_id() {
-        return t_id;
+    public long getId() {
+        return id;
     }
 
-    public void setT_id(int t_id) {
-        this.t_id = t_id;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public String getT_kategory() {
-        return t_kategory;
+    public String getKategory() {
+        return kategory;
     }
 
-    public void setT_kategory(String t_kategory) {
-        this.t_kategory = t_kategory;
+    public void setKategory(String kategory) {
+        this.kategory = kategory;
     }
 
-    public String getT_description() {
-        return t_description;
+    public String getDescription() {
+        return description;
     }
 
-    public void setT_description(String t_description) {
-        this.t_description = t_description;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Date getT_estimatedHours() {
-        return t_estimatedHours;
+    public Date getEstimatedHours() {
+        return estimatedHours;
     }
 
-    public void setT_estimatedHours(Date t_estimatedHours) {
-        this.t_estimatedHours = t_estimatedHours;
+    public void setEstimatedHours(Date estimatedHours) {
+        this.estimatedHours = estimatedHours;
     }
 
-    public int getIt_id() {
-        return it_id;
+    public int getProjectId() {
+        return projectId;
     }
 
-    public void setIt_id(int it_id) {
-        this.it_id = it_id;
+    public void setProjectId(int projectId) {
+        this.projectId = projectId;
     }
 
-    private String t_kategory;
-    private String t_description;
-    private Date t_estimatedHours;
+    private String kategory;
+    private String description;
+    private Date estimatedHours;
 
 
-    private int it_id;
+    private int projectId;
 
 }

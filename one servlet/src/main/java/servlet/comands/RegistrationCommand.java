@@ -21,6 +21,7 @@ public class RegistrationCommand implements Command {
     public static final String REGISTRATE_USER_JSP = "/RegistrateUser.jsp";
     public static final String ENTER = "enter";
     public static final String ERROR = "error";
+    public static final String YOU_REGISTERED_SUCCESSFULLY = "you registered successfully";
 
 
     public void setRegistrationValidator(RegistrationValidator registrationValidator) {
@@ -38,7 +39,7 @@ public class RegistrationCommand implements Command {
         if (button != null) {
             try {
                 registrationValidator.validate(username, password, email);
-
+                request.setAttribute(ERROR, YOU_REGISTERED_SUCCESSFULLY);
                 page = LOGIN_JSP;
             } catch (ValidationException e) {
                 request.setAttribute(ERROR, e.getMessage());

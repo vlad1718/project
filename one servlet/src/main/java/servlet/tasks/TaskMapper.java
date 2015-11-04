@@ -18,11 +18,11 @@ public class TaskMapper implements RowMapper {
 
     public Task mapRow(ResultSet resultSet, int i) throws SQLException {
         Task task = new Task();
-        task.setT_kategory(resultSet.getString(KATEGORY));
-        task.setT_description(resultSet.getString(DESCRIPTION));
-        task.setT_estimatedHours(resultSet.getDate(HOURS));
-        task.setIt_id(resultSet.getInt(ID));
-
+        task.setKategory(resultSet.getString(KATEGORY));
+        task.setDescription(resultSet.getString(DESCRIPTION));
+        task.setEstimatedHours(resultSet.getDate(HOURS));
+        task.setProjectId(resultSet.getInt(ID));
         return task;
+
     }
 }

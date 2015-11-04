@@ -28,16 +28,16 @@ public class TaskCommand implements Command {
         ArrayList<Task> st = new ArrayList<Task>();
         ArrayList<Task> completed = new ArrayList<Task>();
          for (Task tasks : (List<Task>) task.findTasks((Integer) session.getAttribute("it"))) {
-            if (tasks.getT_kategory().equals("not started")) {
+            if (tasks.getKategory().equals("not started")) {
                 notSt.add(tasks);
                 request.setAttribute("not started", notSt);
             }
-            if (tasks.getT_kategory().equals("started")) {
+            if (tasks.getKategory().equals("started")) {
                 st.add(tasks);
 
                 request.setAttribute("started", st);
             }
-            if (tasks.getT_kategory().equals("completed")) {
+            if (tasks.getKategory().equals("completed")) {
                 completed.add(tasks);
                 request.setAttribute("completed", completed);
             }

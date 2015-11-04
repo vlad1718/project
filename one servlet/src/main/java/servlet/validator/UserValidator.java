@@ -4,7 +4,7 @@ package servlet.validator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import servlet.comands.LoginCommand;
-import servlet.users.UserDao;
+import servlet.DAO.UserDao;
 
 import javax.xml.bind.ValidationException;
 
@@ -22,11 +22,11 @@ public class UserValidator extends Validation  {
     @Override
     public void validate(String login,String pass) throws ValidationException {
         super.validate(login,pass);
-        if (user.getUser(login,pass).size()!=0) {
+        if (user.getUser(login, pass).size()!=0) {
             logger.debug("you input valid login and password");
         }
 
-        else if (user.getUser(login,pass).size()== 0){
+        else if (user.getUser(login, pass).size()== 0){
             throw new ValidationException("You input not valid login or password ");
         }
     }

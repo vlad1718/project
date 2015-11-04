@@ -24,7 +24,7 @@
         for (Task task : (List<Task>) request.getAttribute("not started")) {
 
     %>
-    <li><%=task.getT_description()%>
+    <li><%=task.getDescription()%>
     </li>
     <%
             }
@@ -38,7 +38,7 @@
             for (Task task : (List<Task>) request.getAttribute("started")) {
 
     %>
-    <li><%=task.getT_description()%>
+    <li><%=task.getDescription()%>
     </li>
     <%
             }
@@ -51,7 +51,7 @@
         if ((List<Task>) request.getAttribute("completed") != null) {
             for (Task task : (List<Task>) request.getAttribute("completed")) {
     %>
-    <li><%=task.getT_description()%>
+    <li><%=task.getDescription()%>
     </li>
     <%
             }

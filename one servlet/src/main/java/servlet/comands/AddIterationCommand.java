@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 
 /**
  * Created by User on 28.10.2015.
@@ -24,6 +23,7 @@ public class AddIterationCommand implements Command {
     public static final String NAME_ITERATION = "NameIteration";
     public static final String ACT = "act";
     public static final String NEW_ITER_JSP = "/newIter.jsp";
+    public static final String ERROR = "error";
 
     public void setIterationAddValidator(IterationAddValidator iterationAddValidator) {
         this.iterationAddValidator = iterationAddValidator;
@@ -33,7 +33,6 @@ public class AddIterationCommand implements Command {
 
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-dd-MM");
         HttpSession session = request.getSession(true);
         String page = NEW_ITER_JSP;
 
@@ -49,7 +48,7 @@ public class AddIterationCommand implements Command {
                 iterationAddValidator.validate(name, desc, startDate, completeDate, status, pr_id);
                 page = ITERATIONS;
             } catch (ValidationException e) {
-                request.setAttribute("error", e.getMessage());
+                request.setAttribute(ERROR, e.getMessage());
             }
 
 
