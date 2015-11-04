@@ -2,7 +2,7 @@
 
 <configuration>
 
-       <property name="DEV_HOME" value="${DEV_HOME}" />
+       <property name="DEV_HOME" value="C:/Users/User/IdeaProjects/Spring/logs" />
 
        <appender name="FILE-AUDIT"
                  class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -28,7 +28,10 @@
                additivity="false">
               <appender-ref ref="FILE-AUDIT" />
        </logger>
-
+    <logger name="servlet.Controller" level="debug"
+            additivity="false">
+        <appender-ref ref="FILE-AUDIT" />
+    </logger>
 
        <root level="error">
               <appender-ref ref="FILE-AUDIT" />

@@ -25,6 +25,7 @@ public class LoginCommand implements Command {
     private UserValidator userValidator;
     private static final Logger logger =
             LoggerFactory.getLogger(LoginCommand.class);
+
     public void setUserValidator(UserValidator userValidator) {
         this.userValidator = userValidator;
     }
@@ -36,18 +37,15 @@ public class LoginCommand implements Command {
         String login = request.getParameter(LOGIN);
         String pass = request.getParameter(PASSWORD);
 
-            try {
-                userValidator.validate(login, pass);
-                session.setAttribute(LOGIN,true);
-                page = PROJECTS;
-            }
-            catch (ValidationException e) {
-                logger.debug("you not input valid values");
-                request.setAttribute(ERROR,e.getMessage());
-                page = LOGIN_JSP;
-            }
-
-
+        try {
+            userValidator.validate(login, pass);
+            session.setAttribute(LOGIN, true);
+            page = PROJECTS;
+        } catch (ValidationException e) {
+            logger.debug("you not input valid values");
+            request.setAttribute(ERROR, e.getMessage());
+            page = LOGIN_JSP;
+        }
 
 
         return page;

@@ -12,31 +12,34 @@
 <html>
 <head>
     <title></title>
-  <link href="<c:url value="/resources/styles/bootstrap.css" />" rel="stylesheet">
-  <script src="<c:url value="/resources/javascript/bootstrap.js" />"></script>
+    <link href="<c:url value="/resources/styles/bootstrap.css" />" rel="stylesheet">
+    <script src="<c:url value="/resources/javascript/bootstrap.js" />"></script>
 </head>
 <body>
-<form name="IterationForm" method="POST" action ="/iteration/view">
+<form name="IterationForm" method="POST" action="/iteration/view">
 
 
-  <%
+    <%
 
-    for (Iteration iter : (List<Iteration>) request.getAttribute("list")) {
-  %>
-  <div class="btn-group">
-  <br> <button class="btn btn-default" type="text" name="iter" value=<%=iter.getIt_id()%>><%=iter.getIt_name()%></button></br>
+        for (Iteration iter : (List<Iteration>) request.getAttribute("list")) {
+    %>
+    <div class="btn-group">
+        <br>
+        <button class="btn btn-default" type="text" name="iter" value=<%=iter.getIt_id()%>><%=iter.getIt_name()%>
+        </button>
+        </br>
     </div>
-  <%
-    }
+    <%
+        }
 
-  %>
-  </form>
-<form name="IterationForm" method="POST" action ="projects">
-
-  <button class="btn btn-danger" type="sumbit">Cancel</button>
+    %>
 </form>
-<form name="IterationForm" method="POST" action ="/iterations/add">
-  <button class="btn btn-primary" type="sumbmit">add iter</button>
+<form name="IterationForm" method="POST" action="projects">
+
+    <button class="btn btn-danger" type="sumbit">Cancel</button>
+</form>
+<form name="IterationForm" method="POST" action="/iterations/add">
+    <button class="btn btn-primary" type="sumbmit">add iter</button>
 </form>
 </body>
 </html>

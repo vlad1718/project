@@ -5,11 +5,11 @@ package servlet.exceptions;
  */
 public class ValidationException extends Exception {
     public ValidationException() {
-     super();
+        super();
     }
 
     public ValidationException(String message) {
-    super(message);
+        super(message);
     }
 
 

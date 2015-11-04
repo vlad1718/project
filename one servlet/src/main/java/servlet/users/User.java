@@ -4,13 +4,14 @@ package servlet.users;
  * Created by User on 24.10.2015.
  */
 public class User {
-    private long  u_id;
+    private long u_id;
     private String u_username;
     private String u_email;
 
-    public User(){
+    public User() {
 
     }
+
     public User(String u_username, String u_email, String u_password) {
         this.u_username = u_username;
         this.u_email = u_email;
@@ -18,7 +19,6 @@ public class User {
     }
 
     private String u_password;
-
 
 
     public long getU_id() {

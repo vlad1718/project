@@ -11,8 +11,13 @@ import java.util.List;
 public interface IterationDao {
 
     void insert(Iteration iter);
-    List<Iteration> findIter(int n);
-    List<Iteration> findAll();
+
+    List findIter(int n);
+
     List findThisIter(int n);
+
     void del(int list);
+
+    List<Iteration> findAll();
+
 }

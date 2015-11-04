@@ -55,8 +55,6 @@ public class Iteration {
     }
 
 
-
-
     public String getIt_description() {
         return it_description;
     }

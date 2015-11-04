@@ -9,61 +9,66 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-    <title></title>
-    <head>
-  <link href="<c:url value="/resources/styles/bootstrap.css" />" rel="stylesheet">
+<title></title>
+<head>
+    <link href="<c:url value="/resources/styles/bootstrap.css" />" rel="stylesheet">
     <link href="/resources/styles/center.css" rel="stylesheet">
 
-  <script src="<c:url value="/resources/javascript/bootstrap.js" />"></script>
-  <script src="resources/javascript/capsLock.js"></script>
+    <script src="<c:url value="/resources/javascript/bootstrap.js" />"></script>
+    <script src="resources/javascript/capsLock.js"></script>
 
-      <style>
+    <style>
         body {
-          background:url("resources/image/0.jpeg");
+            background: url("resources/image/0.jpeg");
         }
-      </style>
+    </style>
 </head>
-<body >
+<body>
 <hr/>
-<p align = "center">
-<%
-  String error=(String)request.getAttribute("error");
-  if(error!=null)
-    out.println("<font color=red size=4px >"+error+"</font>");
-%>
+<p align="center">
+    <%
+        String error = (String) request.getAttribute("error");
+        if (error != null)
+            out.println("<font color=red size=4px >" + error + "</font>");
+    %>
 </p>
+
 <div class="container">
-  <div class="col-md-3 col-centered ">
-<form name="loginForm" method="POST"  action ="/login" class="form-horizontal" >
+    <div class="col-md-3 col-centered ">
+        <form name="loginForm" method="POST" action="/login" class="form-horizontal">
 
 
-  <div class="form-group" >
+            <div class="form-group">
 
-    <label for="login" class= control-label"  >Login</label>
+                <label for="login" class=control-label">Login</label>
 
-      <input type="text" class="form-control" path="login" id="login" name="login" onkeyup="checkCapsWarning(event)" onfocus="checkCapsWarning(event)" onblur="removeCapsWarning()" placeholder="Логин"/>
+                <input type="text" class="form-control" path="login" id="login" name="login"
+                       onkeyup="checkCapsWarning(event)" onfocus="checkCapsWarning(event)" onblur="removeCapsWarning()"
+                       placeholder="Логин"/>
 
 
+            </div>
+            <div class="form-group">
+                <label for="password" class="control-label">Password</label>
+                <input type="password" class="form-control" path="password" id="password" name="password"
+                       onkeyup="checkCapsWarning(event)" onfocus="checkCapsWarning(event)" onblur="removeCapsWarning()"
+                       placeholder="Пароль">
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Enter</button>
+            </div>
+
+
+        </form>
+
+        <div style="display:none;color:red" id="capsIndicator">нажат CapsLock!</div>
+        <form action="/registration" class="form-horizontal" form role="form">
+            <div id="form-group">
+                <button type="submit" class="btn btn-default">Registration</button>
+            </div>
+        </form>
     </div>
-  <div class="form-group">
-    <label for="password" class="control-label">Password</label>
-      <input type="password" class="form-control" path="password" id="password"name="password" onkeyup="checkCapsWarning(event)" onfocus="checkCapsWarning(event)" onblur="removeCapsWarning()" placeholder="Пароль">
-    </div>
-
-  <div class="form-group">
-      <button type="submit" class="btn btn-success">Enter</button>
-</div>
-
-
-</form>
-
-<div style="display:none;color:red" id="capsIndicator" >нажат CapsLock!</div>
-<form action="/registration" class="form-horizontal"  form role="form">
-   <div id="form-group">
-  <button type="submit" class="btn btn-default">Registration</button>
-    </div>
-</form>
-</div>
 </div>
 </body>
 </html>

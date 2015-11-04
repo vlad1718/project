@@ -22,11 +22,11 @@ public class UserValidator extends Validation  {
     @Override
     public void validate(String login,String pass) throws ValidationException {
         super.validate(login,pass);
-        if (user.search(login,pass).size()!=0) {
+        if (user.getUser(login,pass).size()!=0) {
             logger.debug("you input valid login and password");
         }
 
-        else if (user.search(login,pass).size()== 0){
+        else if (user.getUser(login,pass).size()== 0){
             throw new ValidationException("You input not valid login or password ");
         }
     }

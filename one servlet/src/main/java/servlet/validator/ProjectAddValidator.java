@@ -18,7 +18,7 @@ public class ProjectAddValidator extends ValidationCommons {
         this.projectDao = projectDao;
     }
 
-    public void validate(String name,String startDate , String completeDate) throws ValidationException {
+    public void validate(String name, String startDate, String completeDate) throws ValidationException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-dd-MM");
         Date ps = null;
         Date ds = null;
@@ -28,9 +28,9 @@ public class ProjectAddValidator extends ValidationCommons {
         } catch (ParseException e) {
 
         }
-        super.validate(name, ps,ds);
+        super.validate(name, ps, ds);
         Project pr = new Project(name, ps, ds);
-            projectDao.insert(pr);
+        projectDao.insert(pr);
 
     }
 }

@@ -22,8 +22,8 @@ public class IterationMapper implements RowMapper {
 
     public List mapRow(ResultSet rs, int rowNum) throws SQLException {
 
-        List<Iteration> it =new ArrayList();
-        while(rs.next()) {
+        List<Iteration> it = new ArrayList();
+        while (rs.next()) {
             Iteration iter = new Iteration();
 
             iter.setIt_name(rs.getString(NAME));
@@ -34,7 +34,7 @@ public class IterationMapper implements RowMapper {
             iter.setPr_id(rs.getInt(ID));
             it.add(iter);
         }
-            return it;
+        return it;
 
 
     }

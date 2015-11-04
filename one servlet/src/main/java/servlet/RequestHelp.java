@@ -10,11 +10,13 @@ import java.util.Map;
  * Created by User on 24.10.2015.
  */
 public class RequestHelp {
-    public  Map<String, Command> commands =
+    public Map<String, Command> commands =
             new HashMap<String, Command>();
+
     public RequestHelp(Map map) {
-           this.commands = (Map<String, Command>) map;
-          }
+        this.commands = (Map<String, Command>) map;
+    }
+
     public Command getCommand(HttpServletRequest request) {
         String path = request.getRequestURI();
 

@@ -9,7 +9,7 @@ import java.sql.SQLException;
 /**
  * Created by User on 29.10.2015.
  */
-public class TaskMapper implements  RowMapper{
+public class TaskMapper implements RowMapper {
 
     public static final String KATEGORY = "t_kategory";
     public static final String DESCRIPTION = "t_description";

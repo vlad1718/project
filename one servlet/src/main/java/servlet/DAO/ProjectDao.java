@@ -9,5 +9,6 @@ import java.util.List;
  */
 public interface ProjectDao {
     void insert(Project project);
+
     List<Project> findAll();
 }

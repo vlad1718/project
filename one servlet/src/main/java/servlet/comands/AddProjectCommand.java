@@ -41,7 +41,7 @@ public class AddProjectCommand implements Command {
                 page = PROJECTS;
             }
            catch (ValidationException e) {
-              request.setAttribute(ERROR,e.getMessage());
+               request.setAttribute(ERROR, e.getMessage());
             }
 
         }

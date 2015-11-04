@@ -43,6 +43,6 @@ public class ViewIterationCommand implements Command {
         } else page = VIEW_JSP;
 
 
-           return page;
+        return page;
     }
 }

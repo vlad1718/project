@@ -23,8 +23,9 @@
       out.println("<font color=red size=4px >"+error+"</font>");
   %>
 </p>
+
 <div class="container">
-  <div class="col-md-3 col-centered ">
+    <div class="col-md-3 col-centered ">
 <form name="RegisterForm" method="POST" action ="/registration" class="form-horizontal">
 
 

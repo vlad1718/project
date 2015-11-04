@@ -26,6 +26,7 @@ public class RegistrationCommand implements Command {
     public void setRegistrationValidator(RegistrationValidator registrationValidator) {
         this.registrationValidator = registrationValidator;
     }
+
     private RegistrationValidator registrationValidator;
 
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,9 +35,9 @@ public class RegistrationCommand implements Command {
         String email = request.getParameter(EMAIL);
         String button = request.getParameter(ENTER);
         String page = REGISTRATE_USER_JSP;
-        if(button!=null) {
+        if (button != null) {
             try {
-                registrationValidator.validate(username, password,email);
+                registrationValidator.validate(username, password, email);
 
                 page = LOGIN_JSP;
             } catch (ValidationException e) {

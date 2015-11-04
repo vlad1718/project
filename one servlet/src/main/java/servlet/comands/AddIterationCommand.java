@@ -20,7 +20,6 @@ public class AddIterationCommand implements Command {
     public static final String END_DATE = "endDate";
     public static final String STATUS = "status";
     public static final String PROJECT = "project";
-    public static final String OK = "Ok";
     public static final String ITERATIONS = "/iterations";
     public static final String NAME_ITERATION = "NameIteration";
     public static final String ACT = "act";
@@ -46,12 +45,11 @@ public class AddIterationCommand implements Command {
             String completeDate = request.getParameter(END_DATE);
             String status = request.getParameter(STATUS);
             int pr_id = (Integer) session.getAttribute(PROJECT);
-            try{
-                iterationAddValidator.validate(name,desc,startDate,completeDate,status,pr_id);
-                page= ITERATIONS;
-            }
-            catch (ValidationException e) {
-                request.setAttribute("error",e.getMessage());
+            try {
+                iterationAddValidator.validate(name, desc, startDate, completeDate, status, pr_id);
+                page = ITERATIONS;
+            } catch (ValidationException e) {
+                request.setAttribute("error", e.getMessage());
             }
 
 

@@ -1,7 +1,8 @@
 package servlet.users;
 
-import org.springframework.jdbc.core.simple.ParameterizedBeanPropertyRowMapper;
-import org.springframework.jdbc.core.simple.SimpleJdbcTemplate;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import java.util.HashMap;
 import java.util.List;
@@ -11,24 +12,26 @@ import java.util.Map;
  * Created by User on 24.10.2015.
  */
 public class UserDaoImpl implements UserDao {
-    private SimpleJdbcTemplate sjt;
+    private NamedParameterJdbcTemplate sjt;
 
-    public SimpleJdbcTemplate getSjt() {
+    public NamedParameterJdbcTemplate getSjt() {
         return sjt;
     }
 
-    public void setSjt(SimpleJdbcTemplate sjt) {
+    public void setSjt(NamedParameterJdbcTemplate sjt) {
         this.sjt = sjt;
     }
 
-    public List search(String log,String pas) {
-        String sql = "select *from user where u_username=? and u_password=?";
-        List<User> users =
-                getSjt().query(sql,
-                        ParameterizedBeanPropertyRowMapper.newInstance(User.class),log,pas);
+    public List getUser(String u_username, String u_password) {
+        String sql = "select *from user where u_username=:u_username and u_password=:u_password";
+        MapSqlParameterSource namedParameters = new MapSqlParameterSource();
+        namedParameters.addValue("u_username",u_username);
+        namedParameters.addValue("u_password",u_password);
+        List<User> results = getSjt().query(sql, namedParameters, new BeanPropertyRowMapper<User>(User.class));
 
-        return users;
+        return results;
     }
+
     public void insert(User user) {
 
         String sql = "INSERT INTO user " +
@@ -40,7 +43,6 @@ public class UserDaoImpl implements UserDao {
         parameters.put("u_password", user.getU_password());
         getSjt().update(sql, parameters);
     }
-
 
 
 }

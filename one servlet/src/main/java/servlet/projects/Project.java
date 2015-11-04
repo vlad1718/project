@@ -11,15 +11,15 @@ public class Project {
     private Date startDate;
     private Date completeDate;
 
-    public Project(){
+    public Project() {
 
-}
+    }
+
     public Project(String projectName, Date startDate, Date completeDate) {
         this.projectName = projectName;
         this.startDate = startDate;
         this.completeDate = completeDate;
     }
-
 
 
     public int getIdProject() {

@@ -18,7 +18,7 @@ public class IterationAddValidator extends ValidationCommons {
         this.iterationDao = iterationDao;
     }
 
-    public void validate(String name,String desc,String startDate,String completeDate,String status,int pr_id) throws ValidationException {
+    public void validate(String name, String desc, String startDate, String completeDate, String status, int pr_id) throws ValidationException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-dd-MM");
         Date ps = null;
         Date ds = null;
@@ -28,7 +28,7 @@ public class IterationAddValidator extends ValidationCommons {
         } catch (ParseException e) {
 
         }
-        super.validate(name, ps,ds);
+        super.validate(name, ps, ds);
         Iteration iteration = new Iteration(name, desc, ps, ds, status, pr_id);
         iterationDao.insert(iteration);
     }

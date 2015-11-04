@@ -19,7 +19,6 @@ public class IterationCommand implements Command {
     private IterationDao it;
 
 
-
     public void setIt(IterationDao it) {
         this.it = it;
     }

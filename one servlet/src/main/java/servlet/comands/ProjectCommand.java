@@ -32,7 +32,7 @@ public class ProjectCommand implements Command {
         page = FIRST_JSP;
         String st = request.getParameter(ADD);
 
-        if(st!=null) {
+        if (st != null) {
 
             session.setAttribute(PROJECT, (Integer.parseInt(st)));
             page = ITERATIONS;

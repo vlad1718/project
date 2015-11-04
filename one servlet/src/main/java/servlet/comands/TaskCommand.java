@@ -25,24 +25,26 @@ public class TaskCommand implements Command {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(true);
         ArrayList<Task> notSt = new ArrayList<Task>();
-        ArrayList <Task> st = new ArrayList<Task>();
-        ArrayList <Task> completed = new ArrayList<Task>();
-         for (Task tasks : (List<Task>) task.findTasks((Integer) session.getAttribute("it"))){
-            if (tasks.getT_kategory().equals("not started")){
+        ArrayList<Task> st = new ArrayList<Task>();
+        ArrayList<Task> completed = new ArrayList<Task>();
+         for (Task tasks : (List<Task>) task.findTasks((Integer) session.getAttribute("it"))) {
+            if (tasks.getT_kategory().equals("not started")) {
                 notSt.add(tasks);
-                request.setAttribute("not started",notSt);
+                request.setAttribute("not started", notSt);
             }
-            if (tasks.getT_kategory().equals("started")){
+            if (tasks.getT_kategory().equals("started")) {
                 st.add(tasks);
 
-                request.setAttribute("started",st);
+                request.setAttribute("started", st);
             }
-            if (tasks.getT_kategory().equals("completed")){
+            if (tasks.getT_kategory().equals("completed")) {
                 completed.add(tasks);
-                request.setAttribute("completed",completed);
+                request.setAttribute("completed", completed);
             }
         }
-        String page ="/viewTasks.jsp";
-        return page;
-    }
+
+        String page = "/viewTasks.jsp";
+
+    return page;}
+
 }
