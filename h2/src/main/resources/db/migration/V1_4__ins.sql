@@ -1,0 +1,1 @@
+ALTER TABLE iterations MODIFY  it_id int(11) NOT NULL AUTO_INCREMENT;
