@@ -6,7 +6,7 @@ import servlet.iterations.Iteration;
 import java.util.List;
 
 /**
- * Created by User on 19.10.2015.
+ * Created by vl_gr on 19.10.2015.
  */
 public interface IterationDao {
 

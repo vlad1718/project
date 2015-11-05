@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by User on 24.10.2015.
+ * Created by vl_gr on 24.10.2015.
  */
 public class UserDaoImpl implements UserDao {
     private NamedParameterJdbcTemplate sjt;

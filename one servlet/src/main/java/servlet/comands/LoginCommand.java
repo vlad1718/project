@@ -14,7 +14,7 @@ import java.io.IOException;
 
 
 /**
- * Created by User on 24.10.2015.
+ * Created by vl_gr on 24.10.2015.
  */
 public class LoginCommand implements Command {
     public static final String LOGIN = "login";

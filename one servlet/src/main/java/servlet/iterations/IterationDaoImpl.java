@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by User on 20.10.2015.
+ * Created by vl_gr on 20.10.2015.
  */
 public class IterationDaoImpl implements IterationDao {
     public NamedParameterJdbcTemplate getSjt() {

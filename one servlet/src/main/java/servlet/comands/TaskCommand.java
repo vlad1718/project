@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by User on 27.10.2015.
+ * Created by vl_gr on 27.10.2015.
  */
 public class TaskCommand implements Command {
     private TaskDao task;

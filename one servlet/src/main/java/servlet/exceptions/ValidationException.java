@@ -1,7 +1,7 @@
 package servlet.exceptions;
 
 /**
- * Created by User on 02.11.2015.
+ * Created by vl_gr on 02.11.2015.
  */
 public class ValidationException extends Exception {
     public ValidationException() {

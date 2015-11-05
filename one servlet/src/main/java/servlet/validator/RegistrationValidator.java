@@ -6,7 +6,7 @@ import servlet.DAO.UserDao;
 import javax.xml.bind.ValidationException;
 
 /**
- * Created by User on 02.11.2015.
+ * Created by vl_gr on 02.11.2015.
  */
 public class RegistrationValidator extends Validation {
     public void setUserDao(UserDao userDao) {

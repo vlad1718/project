@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by User on 29.10.2015.
+ * Created by vl_gr on 29.10.2015.
  */
 public class TaskMapper implements RowMapper {
 

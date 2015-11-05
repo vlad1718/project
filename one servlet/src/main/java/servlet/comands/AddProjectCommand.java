@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by User on 28.10.2015.
+ * Created by vl_gr on 28.10.2015.
  */
 public class AddProjectCommand implements Command {
     public static final String INSERT_JSP = "/insert.jsp";
@@ -20,7 +20,6 @@ public class AddProjectCommand implements Command {
     public static final String DATE_COMPLETE = "DateComplete";
     public static final String PROJECTS = "/projects";
     public static final String ERROR = "error";
-    public static final String OK = "ok";
 
 
     private ProjectAddValidator projectAddValidator;
@@ -37,15 +36,14 @@ public class AddProjectCommand implements Command {
             String name = request.getParameter(NAME_PROJECT);
             String startDate = request.getParameter(DATE_BEGIN);
             String completeDate = request.getParameter(DATE_COMPLETE);
-            if (act.equals(OK)) {
-                try {
-                    projectAddValidator.validate(name, startDate, completeDate);
-                    page = PROJECTS;
-                } catch (ValidationException e) {
-                    request.setAttribute(ERROR, e.getMessage());
-                }
+            try{
+               projectAddValidator.validate(name,startDate,completeDate);
+                page = PROJECTS;
             }
-            else page = PROJECTS;
+           catch (ValidationException e) {
+               request.setAttribute(ERROR, e.getMessage());
+            }
+
         }
         return page;
     }

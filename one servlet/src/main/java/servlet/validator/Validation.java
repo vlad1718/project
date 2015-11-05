@@ -3,7 +3,7 @@ package servlet.validator;
 import javax.xml.bind.ValidationException;
 
 /**
- * Created by User on 02.11.2015.
+ * Created by vl_gr on 02.11.2015.
  */
 public abstract class Validation {
 

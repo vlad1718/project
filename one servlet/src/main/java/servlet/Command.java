@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by User on 23.10.2015.
+ * Created by vl_gr on 23.10.2015.
  */
 public interface Command {
     String execute(HttpServletRequest request,

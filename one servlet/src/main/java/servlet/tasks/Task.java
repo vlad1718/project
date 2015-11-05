@@ -3,7 +3,7 @@ package servlet.tasks;
 import java.util.Date;
 
 /**
- * Created by User on 22.10.2015.
+ * Created by vl_gr on 22.10.2015.
  */
 public class Task {
     private long id;

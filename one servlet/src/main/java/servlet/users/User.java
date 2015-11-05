@@ -1,7 +1,7 @@
 package servlet.users;
 
 /**
- * Created by User on 24.10.2015.
+ * Created by vl_gr on 24.10.2015.
  */
 public class User {
     private long id;

@@ -10,7 +10,7 @@ import javax.xml.bind.ValidationException;
 import java.io.IOException;
 
 /**
- * Created by User on 28.10.2015.
+ * Created by vl_gr on 28.10.2015.
  */
 public class RegistrationCommand implements Command {
 

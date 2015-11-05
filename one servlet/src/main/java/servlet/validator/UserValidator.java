@@ -9,7 +9,7 @@ import servlet.DAO.UserDao;
 import javax.xml.bind.ValidationException;
 
 /**
- * Created by User on 31.10.2015.
+ * Created by vl_gr on 31.10.2015.
  */
 public class UserValidator extends Validation  {
     private static final Logger logger =

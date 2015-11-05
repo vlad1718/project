@@ -3,7 +3,7 @@ package servlet.iterations;
 import java.util.Date;
 
 /**
- * Created by User on 19.10.2015.
+ * Created by vl_gr on 19.10.2015.
  */
 public class Iteration {
     private long id;
