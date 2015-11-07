@@ -10,7 +10,7 @@ import java.util.Date;
 public class DateConverter {
     private Date ds;
 
-    public static final String YYYY_DD_MM = "yyyy-dd-MM";
+    public static final String YYYY_DD_MM = "yyyy-MM-dd";
 
     public Date convert(String Date) {
         SimpleDateFormat sdf = new SimpleDateFormat(YYYY_DD_MM);

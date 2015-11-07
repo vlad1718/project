@@ -20,6 +20,7 @@ public class AddProjectCommand implements Command {
     public static final String DATE_COMPLETE = "DateComplete";
     public static final String PROJECTS = "/projects";
     public static final String ERROR = "error";
+    public static final String OK = "Ok";
 
 
     private ProjectAddValidator projectAddValidator;
@@ -36,14 +37,14 @@ public class AddProjectCommand implements Command {
             String name = request.getParameter(NAME_PROJECT);
             String startDate = request.getParameter(DATE_BEGIN);
             String completeDate = request.getParameter(DATE_COMPLETE);
-            try{
-               projectAddValidator.validate(name,startDate,completeDate);
-                page = PROJECTS;
-            }
-           catch (ValidationException e) {
-               request.setAttribute(ERROR, e.getMessage());
-            }
-
+            if (act.equals(OK)) {
+                try {
+                    projectAddValidator.validate(name, startDate, completeDate);
+                    page = PROJECTS;
+                } catch (ValidationException e) {
+                    request.setAttribute(ERROR, e.getMessage());
+                }
+            } else page = PROJECTS;
         }
         return page;
     }

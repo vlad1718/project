@@ -40,7 +40,7 @@
 
 <div class="container">
     <div class="col-md-3 col-centered ">
-        <form name="loginForm" method="POST" action="/login" class="form-horizontal">
+        <form name="loginForm" method="POST" action="<%=request.getContextPath()%>/login" class="form-horizontal">
 
 
             <div class="form-group">

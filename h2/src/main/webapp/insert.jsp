@@ -45,7 +45,7 @@
             </div>
             <div class="form-group">
                 <br> <input type="submit" class="btn btn-success" name="act" value="Ok"/></br>
-                <br> <input type="submit" class="btn btn-default" name="cancel" value="cancel"></br>
+                <br> <input type="submit" class="btn btn-warning" name="act" value="cancel"></br>
             </div>
         </form>
     </div>

@@ -40,7 +40,7 @@
 
 <div class="container">
     <div class="col-md-3 col-centered ">
-        <form name="loginForm" method="POST" action="/login" class="form-horizontal">
+        <form name="loginForm" method="POST" action="<%=request.getContextPath()%>/login" class="form-horizontal">
 
 
             <div class="form-group">
@@ -68,7 +68,7 @@
         </form>
 
         <div style="display:none;color:red" id="capsIndicator">нажат CapsLock!</div>
-        <form action="/registration" class="form-horizontal" form role="form">
+        <form action="<%=request.getContextPath()%>/registration" class="form-horizontal" form role="form">
             <div id="form-group">
                 <button type="submit" class="btn btn-default">Registration</button>
             </div>
