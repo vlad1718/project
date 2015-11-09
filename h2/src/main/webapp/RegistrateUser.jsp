@@ -26,7 +26,7 @@
 
 <div class="container">
     <div class="col-md-3 col-centered ">
-<form name="RegisterForm" method="POST" action ="/registration" class="form-horizontal">
+<form name="RegisterForm" method="POST" action ="<%=request.getContextPath()%>/registration" class="form-horizontal">
 
 
     <div class="form-group" >

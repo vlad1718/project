@@ -18,7 +18,7 @@ public class RequestHelp {
     }
 
     public Command getCommand(HttpServletRequest request) {
-        String path = request.getRequestURI();
+        String path = request.getRequestURI().replace(request.getContextPath(), "");
 
         Command command = commands.get(path);
         if (command == null) {

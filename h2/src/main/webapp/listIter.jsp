@@ -16,7 +16,7 @@
     <script src="<c:url value="/resources/javascript/bootstrap.js" />"></script>
 </head>
 <body>
-<form name="IterationForm" method="POST" action="/iteration/view">
+<form name="IterationForm" method="POST" action="<%=request.getContextPath()%>/iteration/view">
 
 
     <%
@@ -25,7 +25,7 @@
     %>
     <div class="btn-group">
         <br>
-        <button class="btn btn-default" type="text" name="iter" value=<%=iter.getId()%>><%=iter.getName()%>
+        <button class="btn btn-default" type="text" name="iter" value=<%=iter.getId()%>><%=iter.getStartDate()%>
         </button>
         </br>
     </div>
@@ -34,11 +34,11 @@
 
     %>
 </form>
-<form name="IterationForm" method="POST" action="projects">
+<form name="IterationForm" method="POST" action="<%=request.getContextPath()%>/projects">
 
     <button class="btn btn-danger" type="sumbit">Cancel</button>
 </form>
-<form name="IterationForm" method="POST" action="/iterations/add">
+<form name="IterationForm" method="POST" action="<%=request.getContextPath()%>/iterations/add">
     <button class="btn btn-primary" type="sumbmit">add iter</button>
 </form>
 </body>

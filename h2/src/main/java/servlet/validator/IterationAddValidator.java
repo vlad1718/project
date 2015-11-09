@@ -10,6 +10,11 @@ import servlet.iterations.Iteration;
  */
 public class IterationAddValidator extends ValidationCommons {
     private IterationDao iterationDao;
+
+    public void setDateConverter(DateConverter dateConverter) {
+        this.dateConverter = dateConverter;
+    }
+
     private DateConverter dateConverter;
 
     public void setIterationDao(IterationDao iterationDao) {

@@ -12,7 +12,7 @@ public interface IterationDao {
 
     void insert(Iteration iter);
 
-    List findIter(int n);
+    List findIter(int pr_id);
 
     List findThisIter(int n);
 

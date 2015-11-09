@@ -19,12 +19,12 @@
 </head>
 <body>
 
-<form name="ProjectAdd" method="post" action="/projects/add">
+<form name="ProjectAdd" method="post" action="<%=request.getContextPath()%>/projects/add">
 
     <br><br><br>
     <button class="btn btn-primary btn-lg" type="submit">Add</button>
 </form>
-<form name="ProjectForm" method="POST" action="/projects">
+<form name="ProjectForm" method="POST" action="<%=request.getContextPath()%>/projects">
 
     <thead>
     <tr>

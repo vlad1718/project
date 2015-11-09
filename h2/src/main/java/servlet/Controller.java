@@ -49,10 +49,10 @@ public class Controller extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String path = request.getRequestURI();
+        String path = request.getRequestURI().replace(request.getContextPath(), "");
         String page = null;
         Command command = rq.getCommand(request);
-               HttpSession session = request.getSession(true);
+        HttpSession session = request.getSession(true);
         session.setAttribute(LOGIN, session.getAttribute(LOGIN) == null ? false : session.getAttribute(LOGIN));
         if (session.getAttribute(LOGIN).equals(true) || path.contains(REGISTRATION) || path.contains(LOGIN)) {
             page = command.execute(request, response);

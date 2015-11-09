@@ -25,7 +25,7 @@
 %>
 <div class="container">
     <div class="col-md-3 col-centered ">
-        <form name="ProjectAdd" method="post" action="/projects/add" role="form" class="form-horizontal">
+        <form name="ProjectAdd" method="post" action="<%=request.getContextPath()%>/projects/add" role="form" class="form-horizontal">
 
             <div class="form-group">
                 <label for="NameProject">NameProject</label>

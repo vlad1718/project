@@ -17,7 +17,7 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-<form name="IterationForm" method="POST" action="/iteration/view">
+<form name="IterationForm" method="POST" action="<%=request.getContextPath()%>/iteration/view">
 
     <table class="table table-striped">
         <thead>
@@ -91,7 +91,7 @@
     <button class="btn btn-default" type="submit">Cancel</button>
 </form>
 
-<form name="TaskForm" method="POST" action="/tasks">
+<form name="TaskForm" method="POST" action="<%=request.getContextPath()%>/tasks">
 
     <button class="btn btn-default" type="submit">view tasks</button>
 </form>

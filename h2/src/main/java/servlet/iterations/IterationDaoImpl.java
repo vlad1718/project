@@ -26,7 +26,7 @@ public class IterationDaoImpl implements IterationDao {
 
     public void insert(Iteration iter) {
         String sql = "INSERT INTO iterations " +
-                "(it_id, it_name, it_description, it_startDate, it_endDate, it_status, pr_id) VALUES (0,:it_name, :it_description, :it_startDate, :it_endDate, :it_status, :pr_id)";
+                "(it_name, it_description, it_startDate, it_endDate, it_status, pr_id) VALUES (:it_name, :it_description, :it_startDate, :it_endDate, :it_status, :pr_id)";
 
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("it_name", iter.getName());
@@ -42,17 +42,18 @@ public class IterationDaoImpl implements IterationDao {
 
         String sql = "SELECT * FROM iterations";
 
-        List<Iteration> iter =
-                getSjt().query(sql,BeanPropertyRowMapper.newInstance(Iteration.class));
+        List<Iteration> iterations =
+                getSjt().query(sql, BeanPropertyRowMapper.newInstance(Iteration.class));
 
-        return iter;
+        return iterations;
     }
 
     public List findIter(int pr_id) {
         String sql = "SELECT * FROM iterations where pr_id=:pr_id";
 
-        SqlParameterSource namedParameters = new MapSqlParameterSource("pr_id", Integer.valueOf(pr_id));
-        List<Iteration> iteration = getSjt().query(sql, namedParameters, BeanPropertyRowMapper.newInstance(Iteration.class));
+        MapSqlParameterSource namedParameters = new MapSqlParameterSource();
+        namedParameters.addValue("pr_id",pr_id);
+        List<Iteration> iteration = getSjt().query(sql, namedParameters, new BeanPropertyRowMapper<Iteration>(Iteration.class));
         return iteration;
     }
 

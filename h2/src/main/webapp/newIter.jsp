@@ -21,7 +21,7 @@
 %>
 <div class="container">
     <div class="col-md-3 col-centered ">
-        <form name="IterationForm" method="POST" action="add" role="form">
+        <form name="IterationForm" method="POST" action="<%=request.getContextPath()%>/iterations/add" role="form">
 
 
             <div class="form-group">

@@ -24,6 +24,10 @@
         <property name="projectDao" ref="ProjectDaoImpl"></property>
         <property name="dateConverter" ref="DateParser"></property>
     </bean>
+    <bean id ="IterationAddValidator" class="servlet.validator.IterationAddValidator">
+        <property name="iterationDao" ref="Iter"></property>
+        <property name="dateConverter" ref="DateParser"></property>
+    </bean>
     <bean id="ProjectDaoImpl" class="servlet.projects.ProjectDaoImpl">
         <property name="ds" ref="NamedParameterJdbcTemplate"></property>
 
@@ -81,11 +85,9 @@
         <property name="projectAddValidator" ref="ProjectAddValidator"></property>
     </bean>
     <bean id="addIteration" class="servlet.comands.AddIterationCommand">
-        <property name="iterationAddValidator" ref="validationIteration"></property>
+        <property name="iterationAddValidator" ref="IterationAddValidator"></property>
     </bean>
-    <bean id="validationIteration" class="servlet.validator.IterationAddValidator">
-        <property name="iterationDao" ref="Iter"></property>
-    </bean>
+
     <bean id="DateParser" class="servlet.converter.DateConverter">
 
     </bean>
