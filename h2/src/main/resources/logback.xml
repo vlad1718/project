@@ -10,11 +10,11 @@
         </Pattern>
     </encoder>
     </appender>
-    <logger name="servlet.comands.LoginCommand" level="debug"
+    <logger name="management.project.comands.LoginCommand" level="debug"
             additivity="false">
         <appender-ref ref="FILE-AUDIT"/>
     </logger>
-    <logger name="servlet.Controller" level="debug"
+    <logger name="management.project.Controller" level="debug"
             additivity="false">
         <appender-ref ref="FILE-AUDIT"/>
     </logger>

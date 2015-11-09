@@ -50,7 +50,7 @@
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
         <button type="submit" class="btn btn-success" name="enter" value="ok">Enter</button>
-        <button type="submit" class="btn btn-default">Cancel</button>
+        <button type="submit" class="btn btn-default" name="enter" value="cancel">Cancel</button>
         </div>
       </div>
 

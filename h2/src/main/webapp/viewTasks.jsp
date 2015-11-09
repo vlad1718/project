@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ page import="servlet.tasks.Task" %>
+<%@ page import="management.project.tasks.Task" %>
 
 <%@ page import="java.util.List" %>
 <%--

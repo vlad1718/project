@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-init-method="migrate">
 
-    <bean id="main" class="servlet.RequestHelp">
+    <bean id="main" class="management.project.RequestHelp">
         <constructor-arg>
             <map>
                 <entry key="/login" value-ref="login"/>
@@ -20,28 +20,28 @@
 
 
     </bean>
-    <bean id="ProjectAddValidator" class="servlet.validator.ProjectAddValidator">
+    <bean id="ProjectAddValidator" class="management.project.validator.ProjectAddValidator">
         <property name="projectDao" ref="ProjectDaoImpl"></property>
         <property name="dateConverter" ref="DateParser"></property>
     </bean>
-    <bean id ="IterationAddValidator" class="servlet.validator.IterationAddValidator">
+    <bean id ="IterationAddValidator" class="management.project.validator.IterationAddValidator">
         <property name="iterationDao" ref="Iter"></property>
         <property name="dateConverter" ref="DateParser"></property>
     </bean>
-    <bean id="ProjectDaoImpl" class="servlet.projects.ProjectDaoImpl">
+    <bean id="ProjectDaoImpl" class="management.project.projects.ProjectDaoImpl">
         <property name="ds" ref="NamedParameterJdbcTemplate"></property>
 
     </bean>
-    <bean id="UserValid" class="servlet.validator.UserValidator">
+    <bean id="UserValid" class="management.project.validator.UserValidator">
         <property name="user" ref="UserDaoImpl"></property>
     </bean>
-    <bean id="RegisterValid" class="servlet.validator.RegistrationValidator">
+    <bean id="RegisterValid" class="management.project.validator.RegistrationValidator">
         <property name="userDao" ref="UserDaoImpl">
 
         </property>
     </bean>
 
-    <bean id="ViewIter" class="servlet.comands.ViewIterationCommand">
+    <bean id="ViewIter" class="management.project.comands.ViewIterationCommand">
         <property name="it" ref="Iter"></property>
     </bean>
     <bean id="NamedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
@@ -49,46 +49,46 @@
         <constructor-arg type="javax.sql.DataSource" ref="DataSource"/>
     </bean>
 
-    <bean id="Iter" class="servlet.iterations.IterationDaoImpl">
+    <bean id="Iter" class="management.project.iterations.IterationDaoImpl">
         <property name="sjt" ref="NamedParameterJdbcTemplate"></property>
     </bean>
-    <bean id="UserDaoImpl" class="servlet.users.UserDaoImpl">
+    <bean id="UserDaoImpl" class="management.project.users.UserDaoImpl">
         <property name="sjt" ref="NamedParameterJdbcTemplate"></property>
     </bean>
 
-    <bean id="Tasks" class="servlet.tasks.TaskDaoImpl">
+    <bean id="Tasks" class="management.project.tasks.TaskDaoImpl">
         <property name="sjt" ref="NamedParameterJdbcTemplate"></property>
     </bean>
     <bean id="flyway" class="org.flywaydb.core.Flyway" init-method="migrate">
         <property name="dataSource" ref="DataSource"></property>
 
     </bean>
-    <bean id="login" class="servlet.comands.LoginCommand">
+    <bean id="login" class="management.project.comands.LoginCommand">
 
         <property name="userValidator" ref="UserValid"></property>
 
     </bean>
 
-    <bean id="project" class="servlet.comands.ProjectCommand">
+    <bean id="project" class="management.project.comands.ProjectCommand">
         <property name="p" ref="ProjectDaoImpl"></property>
     </bean>
-    <bean id="iteration" class="servlet.comands.IterationCommand">
+    <bean id="iteration" class="management.project.comands.IterationCommand">
         <property name="it" ref="Iter"></property>
     </bean>
-    <bean id="tasks" class="servlet.comands.TaskCommand">
+    <bean id="tasks" class="management.project.comands.TaskCommand">
         <property name="task" ref="Tasks"></property>
     </bean>
-    <bean id="registrate" class="servlet.comands.RegistrationCommand">
+    <bean id="registrate" class="management.project.comands.RegistrationCommand">
         <property name="registrationValidator" ref="RegisterValid"></property>
     </bean>
-    <bean id="addProject" class="servlet.comands.AddProjectCommand">
+    <bean id="addProject" class="management.project.comands.AddProjectCommand">
         <property name="projectAddValidator" ref="ProjectAddValidator"></property>
     </bean>
-    <bean id="addIteration" class="servlet.comands.AddIterationCommand">
+    <bean id="addIteration" class="management.project.comands.AddIterationCommand">
         <property name="iterationAddValidator" ref="IterationAddValidator"></property>
     </bean>
 
-    <bean id="DateParser" class="servlet.converter.DateConverter">
+    <bean id="DateParser" class="management.project.converter.DateConverter">
 
     </bean>
 

@@ -1,4 +1,4 @@
-<%@ page import="servlet.projects.Project" %>
+<%@ page import="management.project.projects.Project" %>
 
 <%@ page import="java.util.List" %>
 <%--
@@ -69,7 +69,7 @@
                 <ul class="nav navbar-nav navbar-right">
 
                     <li><a href="#">Online</a></li>
-                    <li><a href="#">Log out</a></li>
+                    <li><a href="/logout.jsp"><span class="glyphicon glyphicon-log-in"></span>Log out</a></li>
                 </ul>
             </div>
         </div>

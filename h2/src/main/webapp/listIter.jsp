@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="servlet.iterations.Iteration" %>
+<%@ page import="management.project.iterations.Iteration" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
 <%--
   Created by IntelliJ IDEA.
   User: User
@@ -21,11 +22,11 @@
 
     <%
 
-        for (Iteration iter : (List<Iteration>) request.getAttribute("list")) {
+        for (Iteration iter : (ArrayList<Iteration>) request.getAttribute("list")) {
     %>
     <div class="btn-group">
         <br>
-        <button class="btn btn-default" type="text" name="iter" value=<%=iter.getId()%>><%=iter.getStartDate()%>
+        <button class="btn btn-default" type="text" name="iter" value=<%=iter.getId()%>><%=iter.getName()%>
         </button>
         </br>
     </div>
