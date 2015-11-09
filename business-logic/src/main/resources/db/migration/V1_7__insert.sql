@@ -1,0 +1,3 @@
+INSERT INTO user (`u_id`, `u_username`, `u_email`, `u_password`) VALUES (DEFAULT, 'default', '', 'default');
+INSERT INTO projects (`idProject`, `projectName`, `startDate`, `completeDate`) VALUES (DEFAULT, 'default', '2015-09-07', '2016-08-02');
+INSERT INTO iterations (`it_id`, `it_name`, `it_description`, `it_startDate`, `it_endDate`, `it_status`, `pr_id`) VALUES (DEFAULT, 'default', NULL, '2015-08-09', '2016-09-09', NULL, 1);

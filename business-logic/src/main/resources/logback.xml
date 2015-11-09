@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+    <appender name="FILE-AUDIT"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+        <Pattern>
+            %d{yyyy-MM-dd HH:mm:ss} - %msg%n
+        </Pattern>
+    </encoder>
+    </appender>
+    <logger name="management.project.comands.LoginCommand" level="debug"
+            additivity="false">
+        <appender-ref ref="FILE-AUDIT"/>
+    </logger>
+    <logger name="management.project.Controller" level="debug"
+            additivity="false">
+        <appender-ref ref="FILE-AUDIT"/>
+    </logger>
+
+    <root level="error">
+        <appender-ref ref="FILE-AUDIT"/>
+    </root>
+
+</configuration>
