@@ -1,11 +1,11 @@
 Management Project
 
-# Building the Application
+# Synopsis
 ------------------------
-The project aims to demonstrate dependencies within users projects(its iterations, tasks)
+Management project is visual management software which boosts your productivity by applying lean principles to your work. We help you design your workflow, and track important metrics out of the box.
 
 # Requirements
- - MySQL
+ - [MySQL] (http://www.mysql.com/ "MySQL") or [H2](http://www.h2database.com/html/main.html/ "H2")
  - [Maven](http://maven.apache.org/ "Maven")
  
 # Build
@@ -16,10 +16,10 @@ The project aims to demonstrate dependencies within users projects(its iteration
 # Running the Application
 
 
-| mvn tomcat:run
+| mvn tomcat:run (in module branch(web-interface))
 
 ## Configuration
  Configure database connection properties in `config.properties`
  
 ## Comments
-The development of own mvc framevork is conducted in branch one_servlet
+The development of own mvc framevork is conducted in module branch
