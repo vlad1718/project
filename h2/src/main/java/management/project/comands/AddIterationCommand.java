@@ -24,6 +24,8 @@ public class AddIterationCommand implements Command {
     public static final String ACT = "act";
     public static final String NEW_ITER_JSP = "/newIter.jsp";
     public static final String ERROR = "error";
+    public static final String OK = "Ok";
+    public static final String LIST_ITER_JSP = "/listIter.jsp";
 
     public void setIterationAddValidator(IterationAddValidator iterationAddValidator) {
         this.iterationAddValidator = iterationAddValidator;
@@ -44,13 +46,15 @@ public class AddIterationCommand implements Command {
             String completeDate = request.getParameter(END_DATE);
             String status = request.getParameter(STATUS);
             int pr_id = (Integer) session.getAttribute(PROJECT);
-            try {
-                iterationAddValidator.validate(name, desc, startDate, completeDate, status, pr_id);
-                page = ITERATIONS;
-            } catch (ValidationException e) {
-                request.setAttribute(ERROR, e.getMessage());
+            if (act.equals(OK)) {
+                try {
+                    iterationAddValidator.validate(name, desc, startDate, completeDate, status, pr_id);
+                    page = ITERATIONS;
+                } catch (ValidationException e) {
+                    request.setAttribute(ERROR, e.getMessage());
+                }
             }
-
+            else page = LIST_ITER_JSP;
 
         }
         return page;

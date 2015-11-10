@@ -12,6 +12,8 @@
     <title></title>
     <link href="<c:url value="/resources/styles/bootstrap.css" />" rel="stylesheet">
     <script src="<c:url value="/resources/javascript/bootstrap.js" />"></script>
+    <link href="/resources/styles/center.css" rel="stylesheet">
+
 </head>
 <body>
 <%
@@ -22,11 +24,9 @@
 <div class="container">
     <div class="col-md-3 col-centered ">
         <form name="IterationForm" method="POST" action="<%=request.getContextPath()%>/iterations/add" role="form">
-
-
             <div class="form-group">
                 <label for="NameIteration">NameIteration</label>
-                <input type="text" class="form-control input-lg" id="NameIteration" name="NameIteration"
+                <input type="text" class="form-control " id="NameIteration" name="NameIteration"
                        placeholder="InputNameIteration">
             </div>
 
@@ -51,8 +51,8 @@
                 <input type="text" class="form-control" id="status" name="status" placeholder="status">
             </div>
 
-            <br> <input type="submit" name="act" value="Ok"/></br>
-            <br> <input type="submit" name="act" value="cancel"></br>
+            <br> <input type="submit" class="btn btn-success" name="act" value="Ok"/></br>
+            <br> <input type="submit" class="btn btn-warning" name="act" value="cancel"></br>
 
         </form>
     </div>

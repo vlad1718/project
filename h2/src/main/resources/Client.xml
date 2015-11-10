@@ -15,6 +15,7 @@
                 <entry key="/projects/add" value-ref="addProject"/>
                 <entry key="/iterations/add" value-ref="addIteration"/>
                 <entry key="/iteration/view" value-ref="ViewIter"/>
+                <entry key="/tasks/add" value-ref="addTask"/>
             </map>
         </constructor-arg>
 
@@ -24,7 +25,7 @@
         <property name="projectDao" ref="ProjectDaoImpl"></property>
         <property name="dateConverter" ref="DateParser"></property>
     </bean>
-    <bean id ="IterationAddValidator" class="management.project.validator.IterationAddValidator">
+    <bean id="IterationAddValidator" class="management.project.validator.IterationAddValidator">
         <property name="iterationDao" ref="Iter"></property>
         <property name="dateConverter" ref="DateParser"></property>
     </bean>
@@ -83,6 +84,12 @@
     </bean>
     <bean id="addProject" class="management.project.comands.AddProjectCommand">
         <property name="projectAddValidator" ref="ProjectAddValidator"></property>
+    </bean>
+    <bean id="addTask" class="management.project.comands.AddTaskCommand">
+        <property name="taskAddValidator" ref="TaskValidator"></property>
+    </bean>
+    <bean id="TaskValidator" class="management.project.validator.TaskAddValidator">
+        <property name="taskDao" ref="Tasks"></property>
     </bean>
     <bean id="addIteration" class="management.project.comands.AddIterationCommand">
         <property name="iterationAddValidator" ref="IterationAddValidator"></property>

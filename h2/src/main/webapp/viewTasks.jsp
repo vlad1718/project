@@ -18,6 +18,7 @@
     <script src="<c:url value="/resources/javascript/bootstrap.js" />"></script>
 </head>
 <body>
+<form name="IterationForm" method="POST" action="<%=request.getContextPath()%>/tasks/add">
 <ol>
     <b>Not Started tasks</b>
     <% if ((List<Task>) request.getAttribute("not started") != null) {
@@ -57,6 +58,10 @@
             }
         }
     %>
+
+
 </ol>
+    <input type="submit" class="btn btn-success" name="act" value="add"/>
+    </form>
 </body>
 </html>

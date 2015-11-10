@@ -10,11 +10,15 @@ import java.util.Date;
 public class ValidationCommons {
     public void validate(String name, Date startDate, Date completeDate) throws ValidationException {
 
+        try {
+            if (name.isEmpty()) {
+                throw (new ValidationException("you input empty project name"));
+            } else if (startDate.after(completeDate)) {
+                throw (new ValidationException("complete date not to be early start date"));
+            }
+        }
+        catch (NullPointerException e){
 
-        if (name.isEmpty()) {
-            throw (new ValidationException("you input empty project name"));
-        } else if (startDate.after(completeDate)) {
-            throw (new ValidationException("complete date not to be early start date"));
         }
     }
 }

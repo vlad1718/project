@@ -1,0 +1,1 @@
+ALTER TABLE tasks MODIFY t_estimatedHours INT NULL;

@@ -26,6 +26,7 @@
             background-size: cover;
 
         }
+
     </style>
 </head>
 <body>
@@ -40,18 +41,12 @@
 
 <div class="container">
     <div class="col-md-3 col-centered ">
-        <form name="loginForm" method="POST"  action="<%=request.getContextPath()%>/login" class="form-horizontal">
-
-
+        <form name="loginForm" method="POST" action="<%=request.getContextPath()%>/login" class="form-horizontal">
             <div class="form-group">
-
                 <label for="login" class=control-label">Login</label>
-
                 <input type="text" class="form-control" path="login" id="login" name="login"
                        onkeyup="checkCapsWarning(event)" onfocus="checkCapsWarning(event)" onblur="removeCapsWarning()"
                        placeholder="Логин"/>
-
-
             </div>
             <div class="form-group">
                 <label for="password" class="control-label">Password</label>
@@ -59,17 +54,13 @@
                        onkeyup="checkCapsWarning(event)" onfocus="checkCapsWarning(event)" onblur="removeCapsWarning()"
                        placeholder="Пароль">
             </div>
-
             <div class="form-group">
                 <button type="submit" class="btn btn-success">Enter</button>
             </div>
-
-
         </form>
-
         <div style="display:none;color:red" id="capsIndicator">нажат CapsLock!</div>
         <form action="<%=request.getContextPath()%>/registration" class="form-horizontal" form role="form">
-            <div id="form-group">
+            <div class="form-group" >
                 <button type="submit" class="btn btn-default">Registration</button>
             </div>
         </form>

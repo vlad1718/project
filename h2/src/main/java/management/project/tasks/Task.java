@@ -1,7 +1,5 @@
 package management.project.tasks;
 
-import java.util.Date;
-
 /**
  * Created by vl_gr on 22.10.2015.
  */
@@ -32,27 +30,37 @@ public class Task {
         this.description = description;
     }
 
-    public Date getEstimatedHours() {
+    public Integer getEstimatedHours() {
         return estimatedHours;
     }
 
-    public void setEstimatedHours(Date estimatedHours) {
+    public void setEstimatedHours(int estimatedHours) {
         this.estimatedHours = estimatedHours;
-    }
-
-    public int getProjectId() {
-        return projectId;
-    }
-
-    public void setProjectId(int projectId) {
-        this.projectId = projectId;
     }
 
     private String kategory;
     private String description;
-    private Date estimatedHours;
+    private int estimatedHours;
 
+    public Task() {
+    }
 
-    private int projectId;
+    public Task(String kategory, String description, int estimatedHours, int iterationID) {
+
+        this.kategory = kategory;
+        this.description = description;
+        this.estimatedHours = estimatedHours;
+        this.iterationID = iterationID;
+    }
+
+    public int getIterationID() {
+        return iterationID;
+    }
+
+    public void setIterationID(int iterationID) {
+        this.iterationID = iterationID;
+    }
+
+    private int iterationID;
 
 }

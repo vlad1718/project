@@ -12,12 +12,14 @@ public class DateConverter {
 
     public static final String YYYY_DD_MM = "yyyy-MM-dd";
 
-    public Date convert(String Date) {
+    public Date convert(String date) {
         SimpleDateFormat sdf = new SimpleDateFormat(YYYY_DD_MM);
-        try {
-            ds = sdf.parse(Date);
-        } catch (ParseException e) {
+        if (!date.equals("")) {
+            try {
+                ds = sdf.parse(date);
+            } catch (ParseException e) {
 
+            }
         }
         return ds;
     }

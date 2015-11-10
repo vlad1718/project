@@ -61,7 +61,7 @@ public class IterationDaoImpl implements IterationDao {
         String sql = "SELECT * FROM iterations where it_id=:it_id";
 
         SqlParameterSource namedParameters = new MapSqlParameterSource("it_id", Integer.valueOf(it_id));
-        List<Iteration> iteration = getSjt().query(sql, namedParameters, BeanPropertyRowMapper.newInstance(Iteration.class));
+        List<Iteration> iteration = getSjt().query(sql, namedParameters, new IterationMapper());
         return iteration;
 
     }

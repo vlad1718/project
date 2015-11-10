@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="management.project.iterations.Iteration" %>
-<%@ page import="java.util.List" %>
+
 <%@ page import="java.util.ArrayList" %>
 <%--
   Created by IntelliJ IDEA.
@@ -22,7 +22,7 @@
 
     <%
 
-        for (Iteration iter : (ArrayList<Iteration>) request.getAttribute("list")) {
+        for (Iteration iter : (ArrayList<Iteration>) session.getAttribute("list")) {
     %>
     <div class="btn-group">
         <br>

@@ -10,5 +10,6 @@ import java.util.List;
 public interface TaskDao {
     List<Task> findTasks(int n);
 
+    void insert(Task task);
 
 }

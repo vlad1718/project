@@ -20,8 +20,8 @@ public class TaskMapper implements RowMapper {
         Task task = new Task();
         task.setKategory(resultSet.getString(KATEGORY));
         task.setDescription(resultSet.getString(DESCRIPTION));
-        task.setEstimatedHours(resultSet.getDate(HOURS));
-        task.setProjectId(resultSet.getInt(ID));
+        task.setEstimatedHours(resultSet.getInt(HOURS));
+        task.setIterationID(resultSet.getInt(ID));
         return task;
 
     }
